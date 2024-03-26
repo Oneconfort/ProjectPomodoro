@@ -8,7 +8,7 @@ public class UiController : MonoBehaviour
     public GameObject uiPause, painelInicio;
     bool visivel, visivelUiPause;
 
-    void Start()
+    private void Start()
     {
         GameController.controller.uiController = this;
     }
