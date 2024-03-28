@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UiController : MonoBehaviour
 {
-    public GameObject uiPause, painelInicio;
+    public GameObject uiPause, painelInicio, intervaloImagem;
     bool visivel, visivelUiPause;
+
 
     private void Start()
     {

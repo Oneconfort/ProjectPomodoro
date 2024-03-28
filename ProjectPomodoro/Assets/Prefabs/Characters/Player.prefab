@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9040337171951458363}
   - component: {fileID: 1003345534477453346}
   - component: {fileID: 5328834208592836543}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 3795755846406642012}
   - component: {fileID: 3006079708540564711}
   - component: {fileID: 4016949089776442040}
+  - component: {fileID: 1397410627300255528}
   - component: {fileID: 881429004323134638}
   m_Layer: 0
   m_Name: Player
@@ -228,6 +229,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4f261d86b588a459a5e9a5b5370980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!195 &1397410627300255528
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6043578199917207435}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2.5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!54 &881429004323134638
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -267,7 +290,7 @@ GameObject:
   - component: {fileID: 1122727763444028963}
   - component: {fileID: 7177854435052727777}
   - component: {fileID: 49198097300601488}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +306,7 @@ Transform:
   m_GameObject: {fileID: 6912478973967473927}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.659, z: -0.247}
+  m_LocalPosition: {x: 0, y: 0.659, z: 0.247}
   m_LocalScale: {x: 0.721538, y: 0.6201444, z: 0.6201444}
   m_ConstrainProportionsScale: 0
   m_Children: []
