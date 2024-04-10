@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1006,99 +1006,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264896978}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &267775937
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3048960988640869592, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: index
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3048960988640869592, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: amizade
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789649705235134121, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.09324312
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789649705235134121, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789649705235134121, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789649705235134121, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789649705235134121, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789649705235134121, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789649705235134121, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789649705235134121, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789649705235134121, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3789649705235134121, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7720375051954542949, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_Name
-      value: Bully (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7720375051954542949, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_TagString
-      value: Aluno
-      objectReference: {fileID: 0}
-    - target: {fileID: 8867583874110659599, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8867583874110659599, guid: 475e7610158841c43a61e28107aee7e2,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 475e7610158841c43a61e28107aee7e2, type: 3}
 --- !u!1 &276588868
 GameObject:
   m_ObjectHideFlags: 0
@@ -5893,6 +5800,10 @@ MonoBehaviour:
   - {fileID: 1561509195}
   - {fileID: 236710299}
   - {fileID: 1327591901}
+  cadeiras: []
+  isMesas: 
+  isLocais: 
+  isCadeiras: 
   uiController: {fileID: 789771793}
   player: {fileID: 764860330}
   isIntervalo: 0
@@ -6629,7 +6540,6 @@ SceneRoots:
   - {fileID: 1127134463308206805}
   - {fileID: 1900865354356218929}
   - {fileID: 583347596}
-  - {fileID: 267775937}
   - {fileID: 1691048941}
   - {fileID: 789771792}
   - {fileID: 1889307561}

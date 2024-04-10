@@ -14,7 +14,6 @@ public class Alunos : MonoBehaviour
     NavMeshAgent agentAluno;
 
     // [SerializeField] float speed;
-    [SerializeField] int index; //Place-holder
     public GameObject[] emojis;
     private bool desenfilerou = false;
 
@@ -36,7 +35,7 @@ public class Alunos : MonoBehaviour
         }
     }
 
-    private void Update()
+    void FixedUpdate()
     {
         if (GameController.controller.isIntervalo)
         {
@@ -49,6 +48,7 @@ public class Alunos : MonoBehaviour
         }
         else
         {
+            desenfilerou = false;   
             Estudar();
         }
         MudarEmoji();
@@ -57,16 +57,12 @@ public class Alunos : MonoBehaviour
     //Metodo para criar as filas de afazeres de cada aluno, provavelmente vou mudar para os script de cada aluno
     void EnqueueTasks()
     {
-        int rnd1 = Random.Range(0, 3);
-        int rnd2= Random.Range(0, 3);
         Action[] ativs = { Comer, Discutir, Brincar };
+        int rnd1 = Random.Range(0, ativs.Length);
+        int rnd2= Random.Range(0, ativs.Length);
         if (rnd1 == rnd2)
         {
-            rnd2 += 1;
-            if(rnd2 == 3)
-            {
-                rnd2 = 0;
-            }
+            rnd2 = (rnd1+1)% ativs.Length;
         }
         IntervaloActs.Enqueue(ativs[rnd1]);
         IntervaloActs.Enqueue(ativs[rnd2]);
@@ -138,8 +134,7 @@ public class Alunos : MonoBehaviour
     {
         Transform mesa = GameController.controller.GetMesa();
         Move(mesa);
-
-        if (mesa.Equals(transform.position))
+        if (Vector3.Distance(mesa.position, transform.position)<0.5f)
         {
             emojis[1].SetActive(true);
         }
@@ -147,6 +142,7 @@ public class Alunos : MonoBehaviour
         {
             emojis[1].SetActive(false);
         }
+
     }
     void Brincar()
     {
