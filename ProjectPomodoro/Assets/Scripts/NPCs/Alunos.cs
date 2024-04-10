@@ -3,30 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using System.Transactions;
+using System;
+using System.Linq;
 
 public class Alunos : MonoBehaviour
 {
     NavMeshAgent agentAluno;
 
     // [SerializeField] float speed;
-    [SerializeField] string atvAtual; //Para saber qual atividade o aluno está fazendo no momento
     [SerializeField] int index; //Place-holder
     public GameObject[] emojis;
-    private bool chegouAoDestino = false, chegouAoDestinoBrincar = false, chegouAoDestinoBrigar = false;
+    private bool desenfilerou = false;
 
     int amizade = 10;
     public Slider barraAmizade;
 
-    public delegate void Task();
-    private List<Task> tasks = new List<Task>();
+    private Action actAtual;
+    private Queue<Action> IntervaloActs = new Queue<Action>();
+
 
     private void Start()
     {
         agentAluno = GetComponent<NavMeshAgent>();
-
-        StartTasks();
+        EnqueueTasks();
         if (barraAmizade != null)
         {
             barraAmizade.maxValue = amizade;
@@ -38,67 +40,40 @@ public class Alunos : MonoBehaviour
     {
         if (GameController.controller.isIntervalo)
         {
-            Move(GameController.controller.locais[index]);
+            if (!desenfilerou)
+            {
+                actAtual= IntervaloActs.Dequeue();
+                desenfilerou= true;
+            }
+            actAtual();
         }
         else
         {
-            Move(GameController.controller.mesas[index]);
+            Estudar();
         }
-
-        ExecutarTasks();
         MudarEmoji();
     }
 
-    private void OnTriggerEnter(Collider other)
+    //Metodo para criar as filas de afazeres de cada aluno, provavelmente vou mudar para os script de cada aluno
+    void EnqueueTasks()
     {
-        if (other.CompareTag("Cadeira"))
+        int rnd1 = Random.Range(0, 3);
+        int rnd2= Random.Range(0, 3);
+        Action[] ativs = { Comer, Discutir, Brincar };
+        if (rnd1 == rnd2)
         {
-            chegouAoDestino = true;
+            rnd2 += 1;
+            if(rnd2 == 3)
+            {
+                rnd2 = 0;
+            }
         }
-        if (other.CompareTag("Brincar"))
-        {
-            chegouAoDestinoBrincar = true;
-        }
-        if (other.CompareTag("Brigar"))
-        {
-            chegouAoDestinoBrigar = true;
-            Discutir();
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Cadeira"))
-        {
-            chegouAoDestino = false;
-        }
-        if (other.CompareTag("Brincar"))
-        {
-            chegouAoDestinoBrincar = false;
-        }
-        if (other.CompareTag("Brigar"))
-        {
-            chegouAoDestinoBrigar = false;
-            Discutir();
-        }
-    }
-    void ExecutarTasks()
-    {
-        foreach (Task task in tasks)
-        {
-            task();
-        }
-    }
-    void StartTasks()
-    {
-        tasks.Add(new Task(Estudar));
-        tasks.Add(new Task(Comer));
-        tasks.Add(new Task(Brincar));
-        //  tasks.Add(new Task(Discutir));
-    }
+        IntervaloActs.Enqueue(ativs[rnd1]);
+        IntervaloActs.Enqueue(ativs[rnd2]);
 
+    }
     void Move(Transform target)
     {
-        //Place-holder para movimentação, será mais complexo
         agentAluno.SetDestination(target.transform.position);
     }
     void MudarEmoji()
@@ -146,7 +121,10 @@ public class Alunos : MonoBehaviour
     }
     void Estudar()
     {
-        if (GameController.controller.isIntervalo == false && chegouAoDestino == true)
+        Transform cadeira= GameController.controller.GetCadeira();
+        Move(cadeira);
+        
+        if (cadeira.Equals(transform.position))
         {
             emojis[0].SetActive(true);
         }
@@ -158,7 +136,10 @@ public class Alunos : MonoBehaviour
     }
     void Comer()
     {
-        if (GameController.controller.isIntervalo == true && chegouAoDestino == true)
+        Transform mesa = GameController.controller.GetMesa();
+        Move(mesa);
+
+        if (mesa.Equals(transform.position))
         {
             emojis[1].SetActive(true);
         }
@@ -169,7 +150,9 @@ public class Alunos : MonoBehaviour
     }
     void Brincar()
     {
-        if (GameController.controller.isIntervalo == true && chegouAoDestinoBrincar == true)
+        Transform local= GameController.controller.GetLocal();
+        Move(local);
+        if (local.Equals(transform.position))
         {
             emojis[2].SetActive(true);
         }
@@ -180,7 +163,9 @@ public class Alunos : MonoBehaviour
     }
     void Discutir()
     {
-        if (GameController.controller.isIntervalo == false && chegouAoDestinoBrigar == true)
+        Transform local= GameController.controller.GetLocal();
+        Move (local);
+        if (local.Equals(transform.position))
         {
             emojis[3].SetActive(true);
             amizade--;
