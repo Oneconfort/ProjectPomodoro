@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     //Cadeiras: Assentos da sala
 
     [SerializeField]private Transform[] mesas, locais, cadeiras;
-    [SerializeField] private bool[] isMesas, isLocais, isCadeiras;
+    private bool[] isMesas, isLocais, isCadeiras;
 
     public static GameController controller;
     public UiController uiController;
@@ -22,6 +22,9 @@ public class GameController : MonoBehaviour
     private float tempoAtual;
     void Awake()
     {
+        isMesas = new bool[mesas.Length];
+        isLocais = new bool[locais.Length];
+        isCadeiras = new bool[cadeiras.Length];
         if (controller == null)
         {
             controller = this;

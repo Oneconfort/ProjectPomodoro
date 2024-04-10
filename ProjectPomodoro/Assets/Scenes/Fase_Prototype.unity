@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -493,11 +493,11 @@ Transform:
   m_GameObject: {fileID: 128506471}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.64, y: 0, z: 20.571}
+  m_LocalPosition: {x: 8.64, y: 0, z: 22.011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1889307561}
+  m_Father: {fileID: 900430276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &155010484
 GameObject:
@@ -3274,7 +3274,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1889307561}
+  m_Father: {fileID: 900430276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &810296836
 CapsuleCollider:
@@ -3586,6 +3586,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875812848}
   m_CullTransparentMesh: 1
+--- !u!1 &900430275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 900430276}
+  m_Layer: 0
+  m_Name: Locais
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &900430276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900430275}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 128506472}
+  - {fileID: 1561509195}
+  - {fileID: 1828822639}
+  - {fileID: 810296835}
+  m_Father: {fileID: 1889307561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &937676973
 GameObject:
   m_ObjectHideFlags: 0
@@ -5029,7 +5064,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1561509195}
-  - component: {fileID: 1561509196}
   m_Layer: 7
   m_Name: Local (1)
   m_TagString: Brincar
@@ -5050,31 +5084,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1889307561}
+  m_Father: {fileID: 900430276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1561509196
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561509194}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1571073316
 GameObject:
   m_ObjectHideFlags: 0
@@ -5787,23 +5798,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesas:
-  - {fileID: 1571073317}
-  - {fileID: 674380380}
-  - {fileID: 937676974}
-  - {fileID: 937676974}
-  - {fileID: 1828822639}
-  - {fileID: 810296835}
+  - {fileID: 1582071433}
+  - {fileID: 264896979}
+  - {fileID: 751996266}
+  - {fileID: 1327591901}
+  - {fileID: 1592769156}
+  - {fileID: 236710299}
   locais:
   - {fileID: 128506472}
-  - {fileID: 1582071433}
-  - {fileID: 1592769156}
   - {fileID: 1561509195}
-  - {fileID: 236710299}
-  - {fileID: 1327591901}
-  cadeiras: []
-  isMesas: 
-  isLocais: 
-  isCadeiras: 
+  - {fileID: 1828822639}
+  - {fileID: 810296835}
+  cadeiras:
+  - {fileID: 1571073317}
+  - {fileID: 1460246690}
+  - {fileID: 1079763625}
+  - {fileID: 937676974}
+  - {fileID: 769980541}
+  - {fileID: 1155254478}
+  - {fileID: 674380380}
+  - {fileID: 1066929040}
+  - {fileID: 1690225179}
   uiController: {fileID: 789771793}
   player: {fileID: 764860330}
   isIntervalo: 0
@@ -5895,7 +5910,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1828822639}
-  - component: {fileID: 1828822640}
   m_Layer: 7
   m_Name: Local (2)
   m_TagString: Brigar
@@ -5912,35 +5926,12 @@ Transform:
   m_GameObject: {fileID: 1828822638}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.1, y: 0, z: 15.58}
+  m_LocalPosition: {x: -17.568, y: 0, z: 16.092}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1889307561}
+  m_Father: {fileID: 900430276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1828822640
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828822638}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1865198524
 GameObject:
   m_ObjectHideFlags: 0
@@ -6089,10 +6080,7 @@ Transform:
   - {fileID: 1865198525}
   - {fileID: 447171341}
   - {fileID: 1961584774}
-  - {fileID: 128506472}
-  - {fileID: 1561509195}
-  - {fileID: 1828822639}
-  - {fileID: 810296835}
+  - {fileID: 900430276}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1961584773

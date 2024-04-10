@@ -9,13 +9,16 @@ using System.Transactions;
 using System;
 using System.Linq;
 
+public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR};
 public class Alunos : MonoBehaviour
 {
     NavMeshAgent agentAluno;
 
-    // [SerializeField] float speed;
-    public GameObject[] emojis;
+    [SerializeField]private State state;
+    private Transform target;
     private bool desenfilerou = false;
+    private float min = 1f;
+    public GameObject[] emojis;
 
     int amizade = 10;
     public Slider barraAmizade;
@@ -26,6 +29,7 @@ public class Alunos : MonoBehaviour
 
     private void Start()
     {
+        state = State.IDLE;
         agentAluno = GetComponent<NavMeshAgent>();
         EnqueueTasks();
         if (barraAmizade != null)
@@ -41,7 +45,8 @@ public class Alunos : MonoBehaviour
         {
             if (!desenfilerou)
             {
-                actAtual= IntervaloActs.Dequeue();
+                actAtual = IntervaloActs.Dequeue();
+                state = State.IDLE;
                 desenfilerou= true;
             }
             actAtual();
@@ -62,7 +67,7 @@ public class Alunos : MonoBehaviour
         int rnd2= Random.Range(0, ativs.Length);
         if (rnd1 == rnd2)
         {
-            rnd2 = (rnd1+1)% ativs.Length;
+            rnd2 = (rnd1 + 1) % ativs.Length;
         }
         IntervaloActs.Enqueue(ativs[rnd1]);
         IntervaloActs.Enqueue(ativs[rnd2]);
@@ -117,12 +122,17 @@ public class Alunos : MonoBehaviour
     }
     void Estudar()
     {
-        Transform cadeira= GameController.controller.GetCadeira();
-        Move(cadeira);
-        
-        if (cadeira.Equals(transform.position))
+        if (state == State.IDLE)
         {
-            emojis[0].SetActive(true);
+            Transform cadeira = GameController.controller.GetCadeira();
+            target = cadeira.transform;
+            state = State.Walking;
+            Move(cadeira);
+        }
+        else if (Chegou(target))
+        {
+           state = State.ESTUDAR;
+           emojis[0].SetActive(true);
         }
         else
         {
@@ -132,10 +142,16 @@ public class Alunos : MonoBehaviour
     }
     void Comer()
     {
-        Transform mesa = GameController.controller.GetMesa();
-        Move(mesa);
-        if (Vector3.Distance(mesa.position, transform.position)<0.5f)
+        if (state == State.IDLE)
         {
+            Transform mesa = GameController.controller.GetMesa();
+            state = State.Walking;
+            target = mesa.transform;
+            Move(mesa);
+        }
+        else if (Chegou(target))
+        {
+            state = State.COMER;
             emojis[1].SetActive(true);
         }
         else
@@ -146,9 +162,14 @@ public class Alunos : MonoBehaviour
     }
     void Brincar()
     {
-        Transform local= GameController.controller.GetLocal();
-        Move(local);
-        if (local.Equals(transform.position))
+        if (state == State.IDLE)
+        {
+            Transform local = GameController.controller.GetLocal();
+            target = local.transform;
+            state = State.Walking;
+            Move(local);
+        }
+        if (Chegou(target))
         {
             emojis[2].SetActive(true);
         }
@@ -159,9 +180,14 @@ public class Alunos : MonoBehaviour
     }
     void Discutir()
     {
-        Transform local= GameController.controller.GetLocal();
-        Move (local);
-        if (local.Equals(transform.position))
+        if (state == State.IDLE)
+        {
+            Transform local = GameController.controller.GetLocal();
+            target = local.transform;
+            state = State.Walking;
+            Move(local);
+        }
+        if (Chegou(target))
         {
             emojis[3].SetActive(true);
             amizade--;
@@ -174,6 +200,20 @@ public class Alunos : MonoBehaviour
         else
         {
             emojis[3].SetActive(false);
+        }
+
+        
+    }
+    //Metodo para verificar se o personagem chegou ao destino
+    bool Chegou(Transform target)
+    {
+        if (Vector3.Distance(target.position, transform.position) < min)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
