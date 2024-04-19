@@ -9,17 +9,18 @@ using System.Transactions;
 using System;
 using System.Linq;
 
-public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR};
+public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR };
 public class Alunos : MonoBehaviour
 {
     NavMeshAgent agentAluno;
 
-    [SerializeField]private State state;
+    [SerializeField] private State state;
     private Transform target;
-    private bool desenfilerou = false;
-    private float min = 1f;
+    private bool desenfilerou = false, discussaoConcluida = false;
+    private bool isIdle;
+    private float min = 2f;
     public GameObject[] emojis;
-
+    public GameObject menuInteracao;
     int amizade = 10;
     public Slider barraAmizade;
 
@@ -30,6 +31,7 @@ public class Alunos : MonoBehaviour
     private void Start()
     {
         state = State.IDLE;
+        isIdle = true;
         agentAluno = GetComponent<NavMeshAgent>();
         EnqueueTasks();
         if (barraAmizade != null)
@@ -41,19 +43,26 @@ public class Alunos : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameController.controller.isMiniGame == true) { return; }
         if (GameController.controller.isIntervalo)
         {
             if (!desenfilerou)
             {
                 actAtual = IntervaloActs.Dequeue();
                 state = State.IDLE;
-                desenfilerou= true;
+                DeslisgarEmojis();
+                desenfilerou = true;
             }
             actAtual();
         }
         else
         {
-            desenfilerou = false;   
+            if (desenfilerou)
+            {
+                desenfilerou = false;
+                DeslisgarEmojis();
+                state = State.IDLE;
+            }
             Estudar();
         }
         MudarEmoji();
@@ -64,7 +73,7 @@ public class Alunos : MonoBehaviour
     {
         Action[] ativs = { Comer, Discutir, Brincar };
         int rnd1 = Random.Range(0, ativs.Length);
-        int rnd2= Random.Range(0, ativs.Length);
+        int rnd2 = Random.Range(0, ativs.Length);
         if (rnd1 == rnd2)
         {
             rnd2 = (rnd1 + 1) % ativs.Length;
@@ -85,7 +94,7 @@ public class Alunos : MonoBehaviour
             emojis[5].SetActive(false);
             emojis[6].SetActive(false);
         }
-        else if(amizade >= 4) 
+        else if (amizade >= 4)
         {
             emojis[6].SetActive(false);
             emojis[4].SetActive(false);
@@ -96,28 +105,28 @@ public class Alunos : MonoBehaviour
             emojis[5].SetActive(false);
             emojis[6].SetActive(true);
         }
+
     }
-
-    void OnMouseDown()
+    void DeslisgarEmojis()
     {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit))
+        for (int i = 0; i < emojis.Length; i++)
         {
-            if (hit.collider != null && hit.collider.CompareTag("Aluno"))
-            {
-                hit.collider.GetComponent<Alunos>().AumentarAmizade(1);
-            }
+            emojis[i].SetActive(false);
         }
     }
-    void AumentarAmizade(int quantidade)
+
+ 
+    public void AumentarAmizade(int quantidade)
     {
         amizade += quantidade;
         barraAmizade.value = amizade;
         if (amizade >= 10)
         {
             amizade = 10;
+        } 
+        if (amizade <= 0)
+        {
+            amizade = 0;
         }
     }
     void Estudar()
@@ -131,8 +140,8 @@ public class Alunos : MonoBehaviour
         }
         else if (Chegou(target))
         {
-           state = State.ESTUDAR;
-           emojis[0].SetActive(true);
+            state = State.ESTUDAR;
+            emojis[0].SetActive(true);
         }
         else
         {
@@ -171,6 +180,7 @@ public class Alunos : MonoBehaviour
         }
         if (Chegou(target))
         {
+            state = State.BRINCAR;
             emojis[2].SetActive(true);
         }
         else
@@ -186,8 +196,9 @@ public class Alunos : MonoBehaviour
             target = local.transform;
             state = State.Walking;
             Move(local);
+            discussaoConcluida = false;
         }
-        if (Chegou(target))
+        if (Chegou(target) && !discussaoConcluida)
         {
             emojis[3].SetActive(true);
             amizade--;
@@ -196,13 +207,9 @@ public class Alunos : MonoBehaviour
             {
                 amizade = 0;
             }
+            discussaoConcluida = true;
         }
-        else
-        {
-            emojis[3].SetActive(false);
-        }
-
-        
+       
     }
     //Metodo para verificar se o personagem chegou ao destino
     bool Chegou(Transform target)

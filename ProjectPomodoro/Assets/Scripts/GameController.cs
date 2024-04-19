@@ -10,16 +10,21 @@ public class GameController : MonoBehaviour
     //Mesas: Assentos da cantina
     //Cadeiras: Assentos da sala
 
-    [SerializeField]private Transform[] mesas, locais, cadeiras;
+    [SerializeField] private Transform[] mesas, locais, cadeiras;
     private bool[] isMesas, isLocais, isCadeiras;
-
+    public UnlockManifolds games;
+    public GameObject miniGames;
     public static GameController controller;
     public UiController uiController;
     public Player player;
-    public bool isIntervalo; //Será usado para determinar a movimentação dos alunos
-    
+    public bool isIntervalo, isMiniGame = false; //Será usado para determinar a movimentação dos alunos // isMiniGame para o tempo de tem mini game
+    //intervalo
     float tempoTotal = 30f;
     private float tempoAtual;
+    //fim de jogo
+    float TempoTotal = 120f, TempoAtual;
+    public Text textoDoTempo;
+
     void Awake()
     {
         isMesas = new bool[mesas.Length];
@@ -29,11 +34,11 @@ public class GameController : MonoBehaviour
         {
             controller = this;
         }
-        for(int i = 0; i < mesas.Length; i++)
+        for (int i = 0; i < mesas.Length; i++)
         {
             isMesas[i] = true;
         }
-        for(int j = 0; j < locais.Length; j++)
+        for (int j = 0; j < locais.Length; j++)
         {
             isLocais[j] = true;
         }
@@ -41,17 +46,17 @@ public class GameController : MonoBehaviour
         {
             isCadeiras[k] = true;
         }
-
-        Time.timeScale = 0.0f;
     }
     private void Start()
     {
         tempoAtual = tempoTotal;
+        TempoAtual = TempoTotal;
     }
     private void Update()
     {
+        if(isMiniGame == true) { return; } // isMiniGame para o tempo se tem mini game
         TempoIntervalo();
-
+        Tempo();
     }
     void TempoIntervalo()
     {
@@ -63,21 +68,48 @@ public class GameController : MonoBehaviour
             isIntervalo = !isIntervalo; // altera entre true e false
             tempoAtual = tempoTotal;
         }
-        if(isIntervalo)
+        if (isIntervalo)
         {
             uiController.intervaloImagem.SetActive(true);
+            ReiniciarTargets();
         }
         else
         {
             uiController.intervaloImagem.SetActive(false);
+            ReiniciarTargets();
         }
     }
-    
+    void Tempo()
+    {
+        TempoAtual -= Time.deltaTime;
+
+        if (TempoAtual <= 0f)
+        {
+            TempoAtual = 0f;
+            PararJogo();
+
+        }
+        AtualizarTextoTempo();
+    }
+    void AtualizarTextoTempo()
+    {
+        int minutos = Mathf.FloorToInt(TempoAtual / 60f);
+        int segundos = Mathf.FloorToInt(TempoAtual % 60f);
+
+        string formatoTempo = string.Format("{0:00}:{1:00}", minutos, segundos);
+
+        textoDoTempo.text = formatoTempo;
+    }
+    public void PararJogo()
+    {
+        Time.timeScale = 0.0f;
+        uiController.MostrarPainelFimDeJogo();
+    }
     //Os metodos abaixo retornam os transforms dos locais onde vão acontecer as atividades 
 
     public Transform GetCadeira()
     {
-        for(int i = 0; i < cadeiras.Length; i++)
+        for (int i = 0; i < cadeiras.Length; i++)
         {
             if (isCadeiras[i])
             {
@@ -90,7 +122,7 @@ public class GameController : MonoBehaviour
     }
     public Transform GetMesa()
     {
-        for(int i = 0; i < mesas.Length; i++)
+        for (int i = 0; i < mesas.Length; i++)
         {
             if (isMesas[i])
             {
@@ -111,5 +143,36 @@ public class GameController : MonoBehaviour
             }
         }
         return null;
+    }
+
+    // metodos para reiniciar o uso dos locais 
+    public void ReiniciarTargets()
+    {
+        ReiniciarCadeiras();
+        ReiniciarMesas();
+        ReiniciarLocais();
+    }
+    public void ReiniciarCadeiras()
+    {
+        for (int i = 0; i < cadeiras.Length; i++)
+        {
+            isCadeiras[i] = true;
+        }
+    }
+
+    public void ReiniciarMesas()
+    {
+        for (int i = 0; i < mesas.Length; i++)
+        {
+            isMesas[i] = true;
+        }
+    }
+
+    public void ReiniciarLocais()
+    {
+        for (int i = 0; i < locais.Length; i++)
+        {
+            isLocais[i] = true;
+        }
     }
 }
