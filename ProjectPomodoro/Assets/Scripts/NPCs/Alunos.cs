@@ -9,16 +9,18 @@ using System.Transactions;
 using System;
 using System.Linq;
 
-public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR };
+public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR, VITIMA};
 public class Alunos : MonoBehaviour
 {
     NavMeshAgent agentAluno;
-
-    [SerializeField] private State state;
-    private Transform target;
-    private bool desenfilerou = false, discussaoConcluida = false;
-    private bool isIdle;
-    private float min = 2f;
+    
+    public Transform target;
+    private bool desenfilerou = false;
+    private bool discussaoConcluida = false;
+    public bool isVitima;
+    private float min = 1f;
+    public State state;
+    public State stateAtual;
     public GameObject[] emojis;
     public GameObject menuInteracao;
     int amizade = 10;
@@ -31,7 +33,8 @@ public class Alunos : MonoBehaviour
     private void Start()
     {
         state = State.IDLE;
-        isIdle = true;
+        stateAtual = State.IDLE;
+        isVitima = false;
         agentAluno = GetComponent<NavMeshAgent>();
         EnqueueTasks();
         if (barraAmizade != null)
@@ -46,20 +49,34 @@ public class Alunos : MonoBehaviour
         if (GameController.controller.isMiniGame == true) { return; }
         if (GameController.controller.isIntervalo)
         {
-            if (!desenfilerou)
+            if (!isVitima)
             {
-                actAtual = IntervaloActs.Dequeue();
-                state = State.IDLE;
-                DeslisgarEmojis();
-                desenfilerou = true;
+                if (!desenfilerou)
+                {
+                    actAtual = IntervaloActs.Dequeue();
+                    state = State.IDLE;
+                    DeslisgarEmojis();
+                    desenfilerou = true;
+                }
+                actAtual();
             }
-            actAtual();
+            else
+            {
+                if (!desenfilerou)
+                {
+                   actAtual = IntervaloActs.Dequeue();
+                   desenfilerou = true;
+                }
+                SejaVitima();
+            }
         }
         else
         {
-            if (desenfilerou)
+            if (desenfilerou || isVitima)
             {
                 desenfilerou = false;
+                isVitima = false;
+                discussaoConcluida = false;
                 DeslisgarEmojis();
                 state = State.IDLE;
             }
@@ -192,7 +209,8 @@ public class Alunos : MonoBehaviour
     {
         if (state == State.IDLE)
         {
-            Transform local = GameController.controller.GetLocal();
+            stateAtual = State.DISCUTIR;
+            Transform local = GameController.controller.GetVitimas();
             target = local.transform;
             state = State.Walking;
             Move(local);
@@ -200,6 +218,7 @@ public class Alunos : MonoBehaviour
         }
         if (Chegou(target) && !discussaoConcluida)
         {
+            state = State.DISCUTIR;
             emojis[3].SetActive(true);
             amizade--;
             barraAmizade.value = amizade;
@@ -210,6 +229,27 @@ public class Alunos : MonoBehaviour
             discussaoConcluida = true;
         }
        
+    }
+    void SejaVitima()
+    {
+        if (!Chegou(target) && !discussaoConcluida)
+        {
+            Move(target);
+            state = State.Walking;
+            DeslisgarEmojis();
+        }
+        if (Chegou(target) && !discussaoConcluida)
+        {
+            state = State.VITIMA;
+            emojis[3].SetActive(true);
+            amizade--;
+            barraAmizade.value = amizade;
+            if (amizade < 0)
+            {
+                amizade = 0;
+            }
+            discussaoConcluida = true;
+        }
     }
     //Metodo para verificar se o personagem chegou ao destino
     bool Chegou(Transform target)
