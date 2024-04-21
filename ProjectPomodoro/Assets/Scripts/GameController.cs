@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     //Cadeiras: Assentos da sala
 
     [SerializeField] private Transform[] mesas, locais, cadeiras;
+    [SerializeField] private GameObject[] alunos;
     private bool[] isMesas, isLocais, isCadeiras;
     public UnlockManifolds games;
     public GameObject miniGames;
@@ -106,7 +107,20 @@ public class GameController : MonoBehaviour
         uiController.MostrarPainelFimDeJogo();
     }
     //Os metodos abaixo retornam os transforms dos locais onde vão acontecer as atividades 
-
+    public Transform GetVitimas()
+    {
+        for(int i = 0; i< alunos.Length; i++)
+        {
+            if (alunos[i].gameObject.GetComponent<Alunos>().stateAtual != State.DISCUTIR && !alunos[i].gameObject.GetComponent<Alunos>().isVitima)
+            {
+                Transform target = GetLocal();
+                alunos[i].gameObject.GetComponent<Alunos>().isVitima = true;
+                alunos[i].gameObject.GetComponent< Alunos >().target = target;
+                return target;
+            }
+        }
+        return null;
+    }
     public Transform GetCadeira()
     {
         for (int i = 0; i < cadeiras.Length; i++)

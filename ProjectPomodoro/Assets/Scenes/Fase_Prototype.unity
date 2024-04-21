@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3050,6 +3050,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513704038}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &526150583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2437981451883589453, guid: 8091206ad2411eb4d9933a79735095e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1900865354356218929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &583347596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5403,6 +5409,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155254477}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1232532508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2437981451883589453, guid: 8091206ad2411eb4d9933a79735095e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 163298959}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1258386308
 GameObject:
   m_ObjectHideFlags: 0
@@ -5903,6 +5915,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363237449}
   m_CullTransparentMesh: 1
+--- !u!1 &1363319550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5578631787153524106, guid: 119995629d4481b4b9be65ac5c6f71be,
+    type: 3}
+  m_PrefabInstance: {fileID: 583347596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1443379695
 GameObject:
   m_ObjectHideFlags: 0
@@ -6626,6 +6644,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1889307561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1663738740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5578631787153524106, guid: 119995629d4481b4b9be65ac5c6f71be,
+    type: 3}
+  m_PrefabInstance: {fileID: 3190566551190778771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1664838111
 GameObject:
   m_ObjectHideFlags: 0
@@ -6874,6 +6898,12 @@ MonoBehaviour:
   - {fileID: 1079763625}
   - {fileID: 937676974}
   - {fileID: 769980541}
+  alunos:
+  - {fileID: 1663738740}
+  - {fileID: 1363319550}
+  - {fileID: 1855798105}
+  - {fileID: 526150583}
+  - {fileID: 1232532508}
   games: {fileID: 988786809}
   miniGames: {fileID: 670888254}
   uiController: {fileID: 789771793}
@@ -7281,6 +7311,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 900430276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1855798105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7720375051954542949, guid: 475e7610158841c43a61e28107aee7e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1127134463308206805}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1865198524
 GameObject:
   m_ObjectHideFlags: 0
