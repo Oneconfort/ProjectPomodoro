@@ -18,7 +18,10 @@ public class UiController : MonoBehaviour
 
     private void Update()
     {
-        if (GameController.controller.isMiniGame == true) { return; }
+        if (GameController.controller != null)
+        {
+            if (GameController.controller.isMiniGame == true) { return; }
+        }
         Pausar();
      
     }
