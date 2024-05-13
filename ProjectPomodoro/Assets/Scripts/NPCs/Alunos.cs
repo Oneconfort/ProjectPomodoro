@@ -160,10 +160,7 @@ public class Alunos : MonoBehaviour
             state = State.ESTUDAR;
             emojis[0].SetActive(true);
         }
-        else
-        {
-            emojis[0].SetActive(false);
-        }
+
 
     }
     void Comer()
