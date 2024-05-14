@@ -133,7 +133,7 @@ public class Player : MonoBehaviour
 
     public void VerificarFechar()
     {
-        if (GameController.controller.games.acabou == true)
+        if (GameController.controller.games.acabou == true && GameController.controller.miniGames != null)
         {
             GameController.controller.isMiniGame = false;
             GameController.controller.miniGames.SetActive(false);

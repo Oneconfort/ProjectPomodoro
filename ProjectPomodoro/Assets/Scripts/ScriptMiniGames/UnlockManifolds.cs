@@ -9,10 +9,10 @@ public class UnlockManifolds : MonoBehaviour
     public List<Button> buttonsList;// lista dos botoes 
     public List<Button> shuffledButtons;// lista dos botoes embaralhado
     int counter = 0;
-    public bool acabou = false;
+    public bool acabou = true;
     public void Start()
     {
-        RestartGame();
+      RestartGame();
     }
 
     public void RestartGame()

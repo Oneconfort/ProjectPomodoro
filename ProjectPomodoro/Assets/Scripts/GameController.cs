@@ -13,15 +13,20 @@ public class GameController : MonoBehaviour
     [SerializeField] private Transform[] mesas, locais, cadeiras;
     [SerializeField] private GameObject[] alunos;
     private bool[] isMesas, isLocais, isCadeiras;
+
     public UnlockManifolds games;
     public GameObject miniGames;
+    
     public static GameController controller;
     public UiController uiController;
     public Player player;
+    
     public bool isIntervalo, isMiniGame = false; //Será usado para determinar a movimentação dos alunos // isMiniGame para o tempo de tem mini game
+    
     //intervalo
     float tempoTotal = 30f;
     private float tempoAtual;
+   
     //fim de jogo
     float TempoTotal = 120f, TempoAtual;
     public Text textoDoTempo;
@@ -115,7 +120,7 @@ public class GameController : MonoBehaviour
             {
                 Transform target = GetLocal();
                 alunos[i].gameObject.GetComponent<Alunos>().isVitima = true;
-                alunos[i].gameObject.GetComponent< Alunos >().target = target;
+                alunos[i].gameObject.GetComponent<Alunos>().target = target;
                 return target;
             }
         }
