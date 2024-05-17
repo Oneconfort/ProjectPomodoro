@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,15 +9,17 @@ public class UnlockManifolds : MonoBehaviour
 {
     public List<Button> buttonsList;// lista dos botoes 
     public List<Button> shuffledButtons;// lista dos botoes embaralhado
+    public TextMeshProUGUI textMesh;
     int counter = 0;
-    public bool acabou = false;
+ 
     public void Start()
     {
-        RestartGame();
+      RestartGame();
     }
 
     public void RestartGame()
     {
+        textMesh.text = "Conte até 10";
         counter = 0;
         shuffledButtons = buttonsList.OrderBy(a => Random.Range(0, 100)).ToList();//randomizar os numeros
         for (int i = 1; i < 11; i++)
@@ -36,15 +39,21 @@ public class UnlockManifolds : MonoBehaviour
             button.image.color = Color.green;//se acertou
             if (counter == 10)//todos os botoes pressionados
             {
-                acabou = true;
-                RestartGame();
-                counter = 0;
+                textMesh.text = "Parabéns!";
+                Invoke("FimMiniGame", 3f);
             }
         }
         else
         {
             StartCoroutine(presentResult(false));// perde se nao clicou na sequencia
         }
+    }
+
+    public void FimMiniGame()
+    {
+        GameController.controller.acabou = true;
+        RestartGame();
+        counter = 0;
     }
 
     public IEnumerator presentResult(bool success)
@@ -57,7 +66,7 @@ public class UnlockManifolds : MonoBehaviour
                 button.interactable = false;// para de interagir com o botao
             }
         }
-        yield return new WaitForSeconds(2f);// espera 2 segundos
+        yield return new WaitForSeconds(3f);// espera 3 segundos
         RestartGame();// reseta
     }
 }

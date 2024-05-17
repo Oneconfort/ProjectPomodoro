@@ -7,28 +7,34 @@ using Unity.Burst.CompilerServices;
 
 public class UiController : MonoBehaviour
 {
-    public GameObject uiPause, painelInicio, intervaloImagem, painelCreditos, painelOpcoes, painelDerrota;
+    public GameObject uiPause, painelInicio, intervaloImagem, painelCreditos, painelOpcoes, painelDerrota, canvas;
     bool visivel, visivelUiPause;
     public Slider All, Music, VFX;
-
+   
     private void Start()
     {
-        GameController.controller.uiController = this;
+        if (GameController.controller != null)
+        {
+
+            GameController.controller.uiController = this;
+        }
+
     }
 
     private void Update()
     {
-        if (GameController.controller.isMiniGame == true) { return; }
+        if (GameController.controller != null)
+        {
+            if (GameController.controller.isMiniGame == true) { return; }
+        }
         Pausar();
-     
     }
     public void FecharPainelInicio()
     {
         // visivel = !visivel;
          Time.timeScale = 1f;
         //painelInicio.SetActive(false);
-        SceneManager.LoadScene("Fase_Prototype");
-       
+        SceneManager.LoadScene("Fase_Final");
     }
    
 
@@ -38,6 +44,10 @@ public class UiController : MonoBehaviour
         {
             visivelUiPause = !visivelUiPause;
             uiPause.SetActive(visivelUiPause);
+            if (!visivelUiPause)
+            {
+                Time.timeScale = 1.0f;
+            }
         }
         if (visivelUiPause)
         {

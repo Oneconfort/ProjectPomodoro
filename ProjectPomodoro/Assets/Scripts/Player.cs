@@ -26,11 +26,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale == 0) return;
+        if (Time.timeScale == 0 || GameController.controller.isMiniGame == true) return;
         {
             Move();
         }
-        VerificarFechar();
     }
 
     void Move()
@@ -93,15 +92,8 @@ public class Player : MonoBehaviour
                             float randomValue = Random.value;
                             if (randomValue < 0.5f)
                             {
-                                GameController.controller.miniGames.SetActive(true);
-                                GameController.controller.isMiniGame = true;
-                                if (GameController.controller.games.acabou == true)
-                                {
-                                    GameController.controller.miniGames.SetActive(false);
-                                    GameController.controller.games.acabou = false;
-                                    GameController.controller.isMiniGame = false;
-                                    //aluno.AumentarAmizade(quantidade);
-                                }
+                                GameController.controller.acabou = false;
+                                GameController.controller.MiniGames();
                             }
                         }
                     }
@@ -116,27 +108,15 @@ public class Player : MonoBehaviour
         {
             imageE.SetActive(false);
         }
-
         // Se nenhum NPC foi encontrado e o jogador estava interagindo, desliga o menu de interação
         if (!foundNPC && isInteracting)
         {
             isInteracting = false;
-
             Alunos[] allAlunos = FindObjectsOfType<Alunos>();
             foreach (Alunos aluno in allAlunos)
             {
                 aluno.menuInteracao.SetActive(false);
             }
-        }
-    }
-
-
-    public void VerificarFechar()
-    {
-        if (GameController.controller.games.acabou == true)
-        {
-            GameController.controller.isMiniGame = false;
-            GameController.controller.miniGames.SetActive(false);
         }
     }
 }

@@ -9,11 +9,11 @@ using System.Transactions;
 using System;
 using System.Linq;
 
-public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR, VITIMA};
+public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR, VITIMA };
 public class Alunos : MonoBehaviour
 {
     NavMeshAgent agentAluno;
-    
+
     public Transform target;
     private bool desenfilerou = false;
     private bool discussaoConcluida = false;
@@ -30,6 +30,10 @@ public class Alunos : MonoBehaviour
     private Queue<Action> IntervaloActs = new Queue<Action>();
 
 
+    float tempoTotal = 20f; // a cada 20 segundos vai diminuir a amizade
+    private float tempoAtual;
+
+
     private void Start()
     {
         state = State.IDLE;
@@ -37,6 +41,7 @@ public class Alunos : MonoBehaviour
         isVitima = false;
         agentAluno = GetComponent<NavMeshAgent>();
         EnqueueTasks();
+        tempoAtual = tempoTotal;
         if (barraAmizade != null)
         {
             barraAmizade.maxValue = amizade;
@@ -64,8 +69,8 @@ public class Alunos : MonoBehaviour
             {
                 if (!desenfilerou)
                 {
-                   actAtual = IntervaloActs.Dequeue();
-                   desenfilerou = true;
+                    actAtual = IntervaloActs.Dequeue();
+                    desenfilerou = true;
                 }
                 SejaVitima();
             }
@@ -83,6 +88,7 @@ public class Alunos : MonoBehaviour
             Estudar();
         }
         MudarEmoji();
+        DecrescerAmizade();
     }
 
     //Metodo para criar as filas de afazeres de cada aluno, provavelmente vou mudar para os script de cada aluno
@@ -132,7 +138,6 @@ public class Alunos : MonoBehaviour
         }
     }
 
- 
     public void AumentarAmizade(int quantidade)
     {
         amizade += quantidade;
@@ -140,10 +145,26 @@ public class Alunos : MonoBehaviour
         if (amizade >= 10)
         {
             amizade = 10;
-        } 
+        }
         if (amizade <= 0)
         {
             amizade = 0;
+        }
+        if (amizade > 0)
+        {
+            GameController.controller.AtualizarPontos(quantidade);
+        }
+    }
+
+    public void DecrescerAmizade() // diminui a amizade com o tempo
+    {
+        tempoAtual -= Time.deltaTime;
+
+        if (tempoAtual <= 0f)
+        {
+            tempoAtual = 0f;
+            AumentarAmizade(-1);
+            tempoAtual = tempoTotal;
         }
     }
     void Estudar()
@@ -160,11 +181,6 @@ public class Alunos : MonoBehaviour
             state = State.ESTUDAR;
             emojis[0].SetActive(true);
         }
-        else
-        {
-            emojis[0].SetActive(false);
-        }
-
     }
     void Comer()
     {
@@ -228,7 +244,7 @@ public class Alunos : MonoBehaviour
             }
             discussaoConcluida = true;
         }
-       
+
     }
     void SejaVitima()
     {
