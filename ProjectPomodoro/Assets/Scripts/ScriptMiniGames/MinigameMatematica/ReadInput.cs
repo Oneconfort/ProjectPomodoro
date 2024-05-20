@@ -43,7 +43,7 @@ public class ReadInput : MonoBehaviour
         valor1 = Random.Range(1, 11);
         valor2 = Random.Range(1, 11);
 
-        int randomValue = Random.Range(0, 4);
+        int randomValue = Random.Range(0, 3);
 
         switch (randomValue)
         {
@@ -59,16 +59,16 @@ public class ReadInput : MonoBehaviour
                 operador = "*";
                 resultado = valor1 * valor2;
                 break;
-            case 3:
-                operador = ":";
-                if (valor1 < valor2)
-                {
-                    int aux = valor1;
-                    valor1 = valor2;
-                    valor2 = aux;
-                    resultado = valor1 / valor2;
-                }
-                break;
+            //case 3:
+            //    operador = ":";
+            //    if (valor1 < valor2)
+            //    {
+            //        int aux = valor1;
+            //        valor1 = valor2;
+            //        valor2 = aux;
+            //        resultado = valor1 / valor2;
+            //    }
+            //    break;
             default:
                 operador = "+";
                 resultado = valor1 + valor2;
