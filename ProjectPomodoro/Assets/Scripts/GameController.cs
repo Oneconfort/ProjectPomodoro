@@ -151,15 +151,19 @@ public class GameController : MonoBehaviour
         uiController.MostrarPainelFimDeJogo();
     }
     //Os metodos abaixo retornam os transforms dos locais onde vão acontecer as atividades 
-    public Transform GetVitimas()
+    public Transform GetAluno(State mood)
     {
         for (int i = 0; i < alunos.Length; i++)
         {
-            if (alunos[i].gameObject.GetComponent<Alunos>().stateAtual != State.DISCUTIR && !alunos[i].gameObject.GetComponent<Alunos>().isVitima)
+            if (!alunos[i].gameObject.GetComponent<Alunos>().isCalled)
             {
                 Transform target = GetLocal();
-                alunos[i].gameObject.GetComponent<Alunos>().isVitima = true;
+                alunos[i].gameObject.GetComponent<Alunos>().isCalled = true;
                 alunos[i].gameObject.GetComponent<Alunos>().target = target;
+                if (mood == State.DISCUTIR)
+                {
+                    alunos[i].gameObject.GetComponent<Alunos>().inConflict = true;
+                }
                 return target;
             }
         }

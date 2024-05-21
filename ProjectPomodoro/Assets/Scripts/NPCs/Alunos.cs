@@ -9,15 +9,18 @@ using System.Transactions;
 using System;
 using System.Linq;
 
-public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR, VITIMA };
-public class Alunos : MonoBehaviour
+public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR, VITIMA, BRAVO, BULLYING };
+public abstract class Alunos : MonoBehaviour
 {
     NavMeshAgent agentAluno;
 
     public Transform target;
+
     private bool desenfilerou = false;
     private bool discussaoConcluida = false;
-    public bool isVitima;
+    public bool isCalled;
+    public bool inConflict;
+
     private float min = 1f;
     public State state;
     public State stateAtual;
@@ -32,13 +35,15 @@ public class Alunos : MonoBehaviour
 
     float tempoTotal = 20f; // a cada 20 segundos vai diminuir a amizade
     private float tempoAtual;
+    protected abstract void Action1();
 
 
     private void Start()
     {
         state = State.IDLE;
         stateAtual = State.IDLE;
-        isVitima = false;
+        isCalled = false;
+        inConflict = false;
         agentAluno = GetComponent<NavMeshAgent>();
         EnqueueTasks();
         tempoAtual = tempoTotal;
@@ -54,7 +59,7 @@ public class Alunos : MonoBehaviour
         if (GameController.controller.isMiniGame == true) { return; }
         if (GameController.controller.isIntervalo)
         {
-            if (!isVitima)
+            if (!isCalled)
             {
                 if (!desenfilerou)
                 {
@@ -72,15 +77,23 @@ public class Alunos : MonoBehaviour
                     actAtual = IntervaloActs.Dequeue();
                     desenfilerou = true;
                 }
-                SejaVitima();
+                if (inConflict)
+                {
+                    Brigar();
+                }
+                else
+                {
+                    SejaVitima();
+                }
             }
         }
         else
         {
-            if (desenfilerou || isVitima)
+            if (desenfilerou || isCalled)
             {
                 desenfilerou = false;
-                isVitima = false;
+                isCalled = false;
+                inConflict = false;
                 discussaoConcluida = false;
                 DeslisgarEmojis();
                 state = State.IDLE;
@@ -94,7 +107,7 @@ public class Alunos : MonoBehaviour
     //Metodo para criar as filas de afazeres de cada aluno, provavelmente vou mudar para os script de cada aluno
     void EnqueueTasks()
     {
-        Action[] ativs = { Comer, Discutir, Brincar };
+        Action[] ativs = { Comer, Discutir, Brincar, Action1};
         int rnd1 = Random.Range(0, ativs.Length);
         int rnd2 = Random.Range(0, ativs.Length);
         if (rnd1 == rnd2)
@@ -105,7 +118,7 @@ public class Alunos : MonoBehaviour
         IntervaloActs.Enqueue(ativs[rnd2]);
 
     }
-    void Move(Transform target)
+    protected void Move(Transform target)
     {
         agentAluno.SetDestination(target.transform.position);
     }
@@ -167,6 +180,7 @@ public class Alunos : MonoBehaviour
             tempoAtual = tempoTotal;
         }
     }
+
     void Estudar()
     {
         if (state == State.IDLE)
@@ -225,8 +239,8 @@ public class Alunos : MonoBehaviour
     {
         if (state == State.IDLE)
         {
-            stateAtual = State.DISCUTIR;
-            Transform local = GameController.controller.GetVitimas();
+            state = State.DISCUTIR;
+            Transform local = GameController.controller.GetAluno(state);
             target = local.transform;
             state = State.Walking;
             Move(local);
@@ -245,6 +259,28 @@ public class Alunos : MonoBehaviour
             discussaoConcluida = true;
         }
 
+    }
+    void Brigar()
+    {
+        if (!Chegou(target) && !discussaoConcluida)
+        {
+            Move(target);
+            state = State.Walking;
+            DeslisgarEmojis();
+            discussaoConcluida = false;
+        }
+        if (Chegou(target) && !discussaoConcluida)
+        {
+            state = State.BRAVO;
+            emojis[3].SetActive(true);
+            amizade--;
+            barraAmizade.value = amizade;
+            if (amizade < 0)
+            {
+                amizade = 0;
+            }
+            discussaoConcluida = true;
+        }
     }
     void SejaVitima()
     {
@@ -268,7 +304,7 @@ public class Alunos : MonoBehaviour
         }
     }
     //Metodo para verificar se o personagem chegou ao destino
-    bool Chegou(Transform target)
+    protected bool Chegou(Transform target)
     {
         if (Vector3.Distance(target.position, transform.position) < min)
         {
