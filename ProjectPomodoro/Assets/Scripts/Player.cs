@@ -15,8 +15,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        GameController.controller.player = this;
         rb = GetComponent<Rigidbody>();
+        GameController.controller.player = this;
     }
 
     void FixedUpdate()

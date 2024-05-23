@@ -17,7 +17,8 @@ public abstract class Alunos : MonoBehaviour
     public Transform target;
 
     private bool desenfilerou = false;
-    private bool discussaoConcluida = false;
+    private bool normalizou = false;
+    protected bool isHappy = false;
     public bool isCalled;
     public bool inConflict;
 
@@ -56,7 +57,7 @@ public abstract class Alunos : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameController.controller.isMiniGame == true) { return; }
+        //if (GameController.controller.isMiniGame == true) { return; }
         if (GameController.controller.isIntervalo)
         {
             if (!isCalled)
@@ -67,6 +68,7 @@ public abstract class Alunos : MonoBehaviour
                     state = State.IDLE;
                     DeslisgarEmojis();
                     desenfilerou = true;
+                    isHappy = false;
                 }
                 actAtual();
             }
@@ -94,7 +96,8 @@ public abstract class Alunos : MonoBehaviour
                 desenfilerou = false;
                 isCalled = false;
                 inConflict = false;
-                discussaoConcluida = false;
+                isHappy = false;
+                normalizou=false;
                 DeslisgarEmojis();
                 state = State.IDLE;
             }
@@ -153,6 +156,10 @@ public abstract class Alunos : MonoBehaviour
 
     public void AumentarAmizade(int quantidade)
     {
+        if (quantidade > 0)
+        {
+            isHappy = true;
+        }
         amizade += quantidade;
         barraAmizade.value = amizade;
         if (amizade >= 10)
@@ -185,10 +192,9 @@ public abstract class Alunos : MonoBehaviour
     {
         if (state == State.IDLE)
         {
-            Transform cadeira = GameController.controller.GetCadeira();
-            target = cadeira.transform;
+            target = GameController.controller.GetCadeira();
             state = State.Walking;
-            Move(cadeira);
+            Move(target);
         }
         else if (Chegou(target))
         {
@@ -200,10 +206,9 @@ public abstract class Alunos : MonoBehaviour
     {
         if (state == State.IDLE)
         {
-            Transform mesa = GameController.controller.GetMesa();
+            target = GameController.controller.GetMesa();
             state = State.Walking;
-            target = mesa.transform;
-            Move(mesa);
+            Move(target);
         }
         else if (Chegou(target))
         {
@@ -220,10 +225,9 @@ public abstract class Alunos : MonoBehaviour
     {
         if (state == State.IDLE)
         {
-            Transform local = GameController.controller.GetLocal();
-            target = local.transform;
+            target = GameController.controller.GetLocal();
             state = State.Walking;
-            Move(local);
+            Move(target);
         }
         if (Chegou(target))
         {
@@ -244,63 +248,74 @@ public abstract class Alunos : MonoBehaviour
             target = local.transform;
             state = State.Walking;
             Move(local);
-            discussaoConcluida = false;
         }
-        if (Chegou(target) && !discussaoConcluida)
+        if (Chegou(target) && !isHappy)
         {
             state = State.DISCUTIR;
+            DecrescerAmizade();
             emojis[3].SetActive(true);
-            amizade--;
-            barraAmizade.value = amizade;
-            if (amizade < 0)
-            {
-                amizade = 0;
-            }
-            discussaoConcluida = true;
+        }
+        else
+        {
+          Nomarlizar();
         }
 
     }
     void Brigar()
     {
-        if (!Chegou(target) && !discussaoConcluida)
+        if (!Chegou(target) && !isHappy)
         {
             Move(target);
             state = State.Walking;
             DeslisgarEmojis();
-            discussaoConcluida = false;
         }
-        if (Chegou(target) && !discussaoConcluida)
+        if (Chegou(target) && !isHappy)
         {
             state = State.BRAVO;
             emojis[3].SetActive(true);
-            amizade--;
-            barraAmizade.value = amizade;
-            if (amizade < 0)
-            {
-                amizade = 0;
-            }
-            discussaoConcluida = true;
+            DecrescerAmizade();
+        }
+        else
+        {
+            Nomarlizar();
         }
     }
     void SejaVitima()
     {
-        if (!Chegou(target) && !discussaoConcluida)
+        if (!Chegou(target) && !isHappy)
         {
             Move(target);
             state = State.Walking;
             DeslisgarEmojis();
         }
-        if (Chegou(target) && !discussaoConcluida)
+        if (Chegou(target) && !isHappy)
         {
             state = State.VITIMA;
             emojis[3].SetActive(true);
-            amizade--;
-            barraAmizade.value = amizade;
-            if (amizade < 0)
-            {
-                amizade = 0;
-            }
-            discussaoConcluida = true;
+            DecrescerAmizade();
+        }
+        else
+        {
+            Nomarlizar();
+        }
+    }
+    protected void Nomarlizar()
+    {
+        if (!normalizou)
+        {
+            target = GameController.controller.GetLocal();
+            normalizou = true;
+        }
+        else if (!Chegou(target))
+        {
+            state = State.Walking;
+            DeslisgarEmojis();
+            Move(target);
+        }
+        else
+        {
+            state = State.COMER;
+            emojis[0].SetActive(true);
         }
     }
     //Metodo para verificar se o personagem chegou ao destino

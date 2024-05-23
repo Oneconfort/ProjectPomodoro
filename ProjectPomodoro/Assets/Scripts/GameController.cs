@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,8 +16,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private Transform[] mesas, locais, cadeiras;
     [SerializeField] private GameObject[] alunos;
+    [SerializeField] private Target[] tarMesas, tarLoc, tarCad;
 
-    private bool[] isMesas, isLocais, isCadeiras;
     public UnlockManifolds games;
     public GameObject[] miniGames;
     public bool acabou = true;
@@ -41,26 +42,11 @@ public class GameController : MonoBehaviour
     public int paresConectados = 0, totalPares = 3;
 
     public GameObject[] emogiFimGame;
-    void Awake()
+    private void Awake()
     {
-        isMesas = new bool[mesas.Length];
-        isLocais = new bool[locais.Length];
-        isCadeiras = new bool[cadeiras.Length];
         if (controller == null)
         {
             controller = this;
-        }
-        for (int i = 0; i < mesas.Length; i++)
-        {
-            isMesas[i] = true;
-        }
-        for (int j = 0; j < locais.Length; j++)
-        {
-            isLocais[j] = true;
-        }
-        for (int k = 0; k < cadeiras.Length; k++)
-        {
-            isCadeiras[k] = true;
         }
     }
     private void Start()
@@ -69,6 +55,7 @@ public class GameController : MonoBehaviour
         TempoAtual = TempoTotal;
         pontosAmizade = 10 * alunos.Length;
         totalPontos = pontosAmizade;
+        Organize();
     }
     private void Update()
     {
@@ -171,12 +158,12 @@ public class GameController : MonoBehaviour
     }
     public Transform GetCadeira()
     {
-        for (int i = 0; i < cadeiras.Length; i++)
+        for (int i = 0; i < tarCad.Length; i++)
         {
-            if (isCadeiras[i])
+            if (!tarCad[i].IsOcupado)
             {
-                isCadeiras[i] = false;
-                return cadeiras[i];
+                tarCad[i].IsOcupado = true;
+                return tarCad[i].Location;
             }
         }
         return null;
@@ -184,24 +171,24 @@ public class GameController : MonoBehaviour
     }
     public Transform GetMesa()
     {
-        for (int i = 0; i < mesas.Length; i++)
+        for (int i = 0; i < tarMesas.Length; i++)
         {
-            if (isMesas[i])
+            if (!tarMesas[i].IsOcupado)
             {
-                isMesas[i] = false;
-                return mesas[i];
+                tarMesas[i].IsOcupado = true;
+                return tarMesas[i].Location;
             }
         }
         return null;
     }
     public Transform GetLocal()
     {
-        for (int i = 0; i < locais.Length; i++)
+        for (int i = 0; i < tarLoc.Length; i++)
         {
-            if (isLocais[i])
+            if (!tarLoc[i].IsOcupado)
             {
-                isLocais[i] = false;
-                return locais[i];
+                tarLoc[i].IsOcupado = true;
+                return tarLoc[i].Location;
             }
         }
         return null;
@@ -216,25 +203,25 @@ public class GameController : MonoBehaviour
     }
     public void ReiniciarCadeiras()
     {
-        for (int i = 0; i < cadeiras.Length; i++)
+        for (int i = 0; i < tarCad.Length; i++)
         {
-            isCadeiras[i] = true;
+            tarCad[i].IsOcupado = false;
         }
     }
 
     public void ReiniciarMesas()
     {
-        for (int i = 0; i < mesas.Length; i++)
+        for (int i = 0; i < tarMesas.Length; i++)
         {
-            isMesas[i] = true;
+            tarMesas[i].IsOcupado = false;
         }
     }
 
     public void ReiniciarLocais()
     {
-        for (int i = 0; i < locais.Length; i++)
+        for (int i = 0; i < tarLoc.Length; i++)
         {
-            isLocais[i] = true;
+            tarLoc[i].IsOcupado = false;
         }
     }
 
@@ -286,5 +273,24 @@ public class GameController : MonoBehaviour
         uiController.canvas.SetActive(true);
         cameras[1].SetActive(false);
         cameras[0].SetActive(true);
+    }
+    void Organize()
+    {
+        tarMesas = new Target[mesas.Length];
+        tarLoc = new Target[locais.Length];
+        tarCad = new Target[cadeiras.Length];
+
+        for(int i = 0; i < tarMesas.Length; i++)
+        {
+            tarMesas[i] = new Target(mesas[i]);
+        }
+        for (int i = 0; i < tarLoc.Length; i++)
+        {
+            tarLoc[i] = new Target(locais[i]);
+        }
+        for(int i = 0; i < tarCad.Length; i++)
+        {
+            tarCad[i] = new Target(cadeiras[i]);
+        }
     }
 }

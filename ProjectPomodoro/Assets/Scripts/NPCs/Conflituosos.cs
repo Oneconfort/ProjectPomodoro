@@ -16,12 +16,16 @@ public class Conflituosos : Alunos
         }
         if (Chegou(target))
         {
-            state = State.BULLYING;
-            emojis[2].SetActive(true);
-        }
-        else
-        {
-            emojis[2].SetActive(false);
+            if (!isHappy)
+            {
+                state = State.BULLYING;
+                emojis[2].SetActive(true);
+                DecrescerAmizade();
+            }
+            else
+            {
+                Nomarlizar();
+            }
         }
     }
   
