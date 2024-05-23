@@ -6,26 +6,24 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Bardeneiro : Alunos
 {
-    void BrinPerigo()
-    {
-    }
+    
     protected override void Action1()
     {
         if (state == State.IDLE)
         {
-            Transform mesa = GameController.controller.GetMesa();
+            Transform mesa = GameController.controller.GetLocal();
             state = State.Walking;
             target = mesa.transform;
             Move(mesa);
         }
         else if (Chegou(target))
         {
-            state = State.COMER;
-            emojis[1].SetActive(true);
+            state = State.QUEBRA;
+            emojis[3].SetActive(true);
         }
-        else
+        else if (isHappy)
         {
-            emojis[1].SetActive(false);
+           Nomarlizar();
         }
     }
 }

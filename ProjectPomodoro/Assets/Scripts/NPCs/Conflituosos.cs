@@ -6,13 +6,14 @@ public class Conflituosos : Alunos
 {
     protected override void Action1()
     {
-        if (state == State.IDLE)
+        Comer();
+        /*if (state == State.IDLE)
         {
-            state = State.BULLYING;
-            Transform local = GameController.controller.GetAluno(state);
-            target = local.transform;
+            target = GameController.controller.GetLocal();
             state = State.Walking;
-            Move(local);
+            GameController.controller.GetAluno(target, true);
+            Move(target);
+            Debug.Log("Bulling!!!");
         }
         if (Chegou(target))
         {
@@ -22,11 +23,7 @@ public class Conflituosos : Alunos
                 emojis[2].SetActive(true);
                 DecrescerAmizade();
             }
-            else
-            {
-                Nomarlizar();
-            }
-        }
+        }*/
     }
   
 }

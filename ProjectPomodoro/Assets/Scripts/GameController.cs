@@ -14,9 +14,9 @@ public class GameController : MonoBehaviour
     //Mesas: Assentos da cantina
     //Cadeiras: Assentos da sala
 
-    [SerializeField] private Transform[] mesas, locais, cadeiras;
+    [SerializeField] private Transform[] mesas, locais, cadeiras, props;
     [SerializeField] private GameObject[] alunos;
-    [SerializeField] private Target[] tarMesas, tarLoc, tarCad;
+    [SerializeField] private Target[] tarMesas, tarLoc, tarCad, tarProps;
 
     public UnlockManifolds games;
     public GameObject[] miniGames;
@@ -138,20 +138,34 @@ public class GameController : MonoBehaviour
         uiController.MostrarPainelFimDeJogo();
     }
     //Os metodos abaixo retornam os transforms dos locais onde vão acontecer as atividades 
-    public Transform GetAluno(State mood)
+    public void GetAluno(Transform target, bool isVitma)
     {
         for (int i = 0; i < alunos.Length; i++)
         {
             if (!alunos[i].gameObject.GetComponent<Alunos>().isCalled)
             {
-                Transform target = GetLocal();
                 alunos[i].gameObject.GetComponent<Alunos>().isCalled = true;
                 alunos[i].gameObject.GetComponent<Alunos>().target = target;
-                if (mood == State.DISCUTIR)
+                if (isVitma)
                 {
-                    alunos[i].gameObject.GetComponent<Alunos>().inConflict = true;
+                    alunos[i].gameObject.GetComponent<Alunos>().actAtual = alunos[i].gameObject.GetComponent<Alunos>().SejaVitima;
                 }
-                return target;
+                else
+                {
+                  alunos[i].gameObject.GetComponent<Alunos>().actAtual = alunos[i].gameObject.GetComponent<Alunos>().Discutir;
+                }
+            }
+        }
+    }
+
+    public Transform GetProp()
+    {
+        for(int i = 0; i < tarProps.Length; i++)
+        {
+            if (!tarProps[i].IsOcupado)
+            {
+                tarProps[i].IsOcupado = true;
+                return tarProps[i].Location;
             }
         }
         return null;
@@ -279,6 +293,7 @@ public class GameController : MonoBehaviour
         tarMesas = new Target[mesas.Length];
         tarLoc = new Target[locais.Length];
         tarCad = new Target[cadeiras.Length];
+        tarProps = new Target[props.Length];
 
         for(int i = 0; i < tarMesas.Length; i++)
         {

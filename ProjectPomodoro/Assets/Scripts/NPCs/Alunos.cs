@@ -9,7 +9,7 @@ using System.Transactions;
 using System;
 using System.Linq;
 
-public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR, VITIMA, BRAVO, BULLYING };
+public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR, VITIMA, BRAVO, BULLYING, QUEBRA, CHORAR};
 public abstract class Alunos : MonoBehaviour
 {
     NavMeshAgent agentAluno;
@@ -22,16 +22,15 @@ public abstract class Alunos : MonoBehaviour
     public bool isCalled;
     public bool inConflict;
 
-    private float min = 1f;
+    private float min = 1.5f;
     public State state;
-    public State stateAtual;
     public GameObject[] emojis;
     public GameObject menuInteracao;
     int amizade = 10;
     public Slider barraAmizade;
 
-    private Action actAtual;
-    private Queue<Action> IntervaloActs = new Queue<Action>();
+    public Action actAtual;
+    [SerializeField] private Queue<Action> IntervaloActs = new Queue<Action>();
 
 
     float tempoTotal = 20f; // a cada 20 segundos vai diminuir a amizade
@@ -42,7 +41,6 @@ public abstract class Alunos : MonoBehaviour
     private void Start()
     {
         state = State.IDLE;
-        stateAtual = State.IDLE;
         isCalled = false;
         inConflict = false;
         agentAluno = GetComponent<NavMeshAgent>();
@@ -58,59 +56,38 @@ public abstract class Alunos : MonoBehaviour
     void FixedUpdate()
     {
         //if (GameController.controller.isMiniGame == true) { return; }
-        if (GameController.controller.isIntervalo)
+        if (!GameController.controller.isIntervalo)
         {
-            if (!isCalled)
+            if (!desenfilerou)
             {
-                if (!desenfilerou)
-                {
-                    actAtual = IntervaloActs.Dequeue();
-                    state = State.IDLE;
-                    DeslisgarEmojis();
-                    desenfilerou = true;
-                    isHappy = false;
-                }
-                actAtual();
-            }
-            else
-            {
-                if (!desenfilerou)
-                {
-                    actAtual = IntervaloActs.Dequeue();
-                    desenfilerou = true;
-                }
-                if (inConflict)
-                {
-                    Brigar();
-                }
-                else
-                {
-                    SejaVitima();
-                }
-            }
-        }
-        else
-        {
-            if (desenfilerou || isCalled)
-            {
-                desenfilerou = false;
+                actAtual = IntervaloActs.Dequeue();
+                desenfilerou = true;
                 isCalled = false;
                 inConflict = false;
                 isHappy = false;
-                normalizou=false;
+                normalizou = false;
                 DeslisgarEmojis();
                 state = State.IDLE;
             }
             Estudar();
         }
+        else 
+        {
+            if (desenfilerou)
+            {
+                state = State.IDLE;
+                DeslisgarEmojis();
+                desenfilerou = false;
+            }
+            actAtual();
+        }
         MudarEmoji();
-        DecrescerAmizade();
     }
 
     //Metodo para criar as filas de afazeres de cada aluno, provavelmente vou mudar para os script de cada aluno
     void EnqueueTasks()
     {
-        Action[] ativs = { Comer, Discutir, Brincar, Action1};
+        Action[] ativs = { Action1, Comer, Brincar};
         int rnd1 = Random.Range(0, ativs.Length);
         int rnd2 = Random.Range(0, ativs.Length);
         if (rnd1 == rnd2)
@@ -121,7 +98,7 @@ public abstract class Alunos : MonoBehaviour
         IntervaloActs.Enqueue(ativs[rnd2]);
 
     }
-    protected void Move(Transform target)
+    public void Move(Transform target)
     {
         agentAluno.SetDestination(target.transform.position);
     }
@@ -153,13 +130,15 @@ public abstract class Alunos : MonoBehaviour
             emojis[i].SetActive(false);
         }
     }
-
-    public void AumentarAmizade(int quantidade)
+    public void Parar()
     {
-        if (quantidade > 0)
+        if (!isHappy)
         {
             isHappy = true;
         }
+    }
+    public void AumentarAmizade(int quantidade)
+    {
         amizade += quantidade;
         barraAmizade.value = amizade;
         if (amizade >= 10)
@@ -202,7 +181,7 @@ public abstract class Alunos : MonoBehaviour
             emojis[0].SetActive(true);
         }
     }
-    void Comer()
+    protected void Comer()
     {
         if (state == State.IDLE)
         {
@@ -239,39 +218,23 @@ public abstract class Alunos : MonoBehaviour
             emojis[2].SetActive(false);
         }
     }
-    void Discutir()
+    public void Discutir()
+
     {
         if (state == State.IDLE)
         {
-            state = State.DISCUTIR;
-            Transform local = GameController.controller.GetAluno(state);
-            target = local.transform;
-            state = State.Walking;
-            Move(local);
-        }
-        if (Chegou(target) && !isHappy)
-        {
-            state = State.DISCUTIR;
-            DecrescerAmizade();
-            emojis[3].SetActive(true);
-        }
-        else
-        {
-          Nomarlizar();
-        }
-
-    }
-    void Brigar()
-    {
-        if (!Chegou(target) && !isHappy)
-        {
+            if (!isCalled)
+            {
+                target = GameController.controller.GetLocal();
+                GameController.controller.GetAluno(target, false);
+            }
             Move(target);
             state = State.Walking;
             DeslisgarEmojis();
-        }
-        if (Chegou(target) && !isHappy)
+
+        }else if (Chegou(target) && !isHappy)
         {
-            state = State.BRAVO;
+            state = State.DISCUTIR;
             emojis[3].SetActive(true);
             DecrescerAmizade();
         }
@@ -280,9 +243,9 @@ public abstract class Alunos : MonoBehaviour
             Nomarlizar();
         }
     }
-    void SejaVitima()
+    public void SejaVitima()
     {
-        if (!Chegou(target) && !isHappy)
+        if (state == State.IDLE)
         {
             Move(target);
             state = State.Walking;
@@ -291,7 +254,7 @@ public abstract class Alunos : MonoBehaviour
         if (Chegou(target) && !isHappy)
         {
             state = State.VITIMA;
-            emojis[3].SetActive(true);
+            emojis[6].SetActive(true);
             DecrescerAmizade();
         }
         else
@@ -299,11 +262,13 @@ public abstract class Alunos : MonoBehaviour
             Nomarlizar();
         }
     }
+
+    
     protected void Nomarlizar()
     {
         if (!normalizou)
         {
-            target = GameController.controller.GetLocal();
+            target = GameController.controller.GetMesa();
             normalizou = true;
         }
         else if (!Chegou(target))

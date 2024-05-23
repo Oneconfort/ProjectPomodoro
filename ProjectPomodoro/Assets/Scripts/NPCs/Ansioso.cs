@@ -12,19 +12,19 @@ public class Ansioso : Alunos
     {
         if (state == State.IDLE)
         {
-            Transform mesa = GameController.controller.GetMesa();
+            Transform mesa = GameController.controller.GetLocal();
             state = State.Walking;
             target = mesa.transform;
             Move(mesa);
         }
-        else if (Chegou(target))
+        else if (Chegou(target) && !isHappy)
         {
-            state = State.COMER;
-            emojis[1].SetActive(true);
+            state = State.CHORAR;
+            emojis[6].SetActive(true);
         }
-        else
+        else if(isHappy)
         {
-            emojis[1].SetActive(false);
+            Nomarlizar();
         }
     }
 }
