@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class Destroi : MonoBehaviour
 {
-    int moveSpeed = 250;
+    int moveSpeed = 350;
     private void Start()
     {
         Destroy(gameObject, 50);
@@ -23,10 +23,6 @@ public class Destroi : MonoBehaviour
     }
     private void Move()
     {
-        
-       
-            transform.position += Vector3.down * Time.deltaTime * moveSpeed;
-        
-
+        transform.position += Vector3.down * Time.deltaTime * moveSpeed;
     }
 }

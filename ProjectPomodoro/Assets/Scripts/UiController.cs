@@ -59,7 +59,7 @@ public class UiController : MonoBehaviour
     {
         visivel = !visivel;
         painelDerrota.SetActive(true);
-        Time.timeScale = 0.0f;
+       // Time.timeScale = 0.0f;
     }
 
     public void PainelMenu()

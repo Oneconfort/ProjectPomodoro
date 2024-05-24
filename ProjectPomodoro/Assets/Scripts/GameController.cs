@@ -29,7 +29,8 @@ public class GameController : MonoBehaviour
 
     public bool isIntervalo, isMiniGame = false; //Será usado para determinar a movimentação dos alunos // isMiniGame para o tempo de tem mini game
     public int pontosAmizade, numMinigames;
-    public Slider barraPontosAmizade;
+    public Slider barraMiniGames;
+    public Image imagemGame;
     //intervalo
     float tempoTotal = 30f;
     private float tempoAtual;
@@ -40,7 +41,8 @@ public class GameController : MonoBehaviour
     //minigameLigaLiga
     int randomIndex;
     public int paresConectados = 0, totalPares = 3;
-
+    public int pontosMiniGamebullying = 0;
+    public Slider barraPontosMiniGame;
     public GameObject[] emogiFimGame;
     private void Awake()
     {
@@ -67,7 +69,6 @@ public class GameController : MonoBehaviour
     public void AtualizarPontos(int quantidade)
     {
         pontosAmizade += quantidade;
-        barraPontosAmizade.value = pontosAmizade;
         if (pontosAmizade >= totalPontos)
         {
             pontosAmizade = totalPontos;
@@ -243,8 +244,8 @@ public class GameController : MonoBehaviour
     public void MiniGames()
     {
         numMinigames++;
-
-        randomIndex = UnityEngine.Random.Range(0, 3); // É exclusivo 
+        barraMiniGames.value = numMinigames;
+        randomIndex = UnityEngine.Random.Range(3, 4); // É exclusivo 
         miniGames[randomIndex].SetActive(true);
         isMiniGame = true;
 
@@ -259,7 +260,19 @@ public class GameController : MonoBehaviour
             miniGames[randomIndex].SetActive(false);
             acabou = false;
             isMiniGame = false;
-            //aluno.AumentarAmizade(quantidade);
+        }
+        
+        if (numMinigames <= 4)
+        {
+            imagemGame.color = Color.red;
+        }
+        if (numMinigames >= 4 && numMinigames <= 7)
+        {
+            imagemGame.color = Color.yellow;
+        }
+        if (numMinigames >= 7 && numMinigames <= 10)
+        {
+            imagemGame.color = Color.green;
         }
     }
     public void VerificarFechar()
@@ -288,6 +301,8 @@ public class GameController : MonoBehaviour
         cameras[1].SetActive(false);
         cameras[0].SetActive(true);
     }
+   
+  
     void Organize()
     {
         tarMesas = new Target[mesas.Length];

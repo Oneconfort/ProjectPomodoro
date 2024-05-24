@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
+    public static Spawner spawner;
     private float h;
-    float moveSpeed = 250;
+    float moveSpeed = 300;
     public GameObject[] objectToSpawn;
     public GameObject[] imagem;
     public Transform parentTransform;
     bool gerado = false;
     int randomIndex;
+  
     private void Start()
     {
-        randomIndex = UnityEngine.Random.Range(0, 2); // É exclusivo 
+        randomIndex = Random.Range(0, 2); // É exclusivo 
 
     }
     private void Update()
@@ -58,4 +61,5 @@ public class Spawner : MonoBehaviour
             }
         }
     }
+
 }

@@ -8,6 +8,9 @@ TagManager:
   - Brincar
   - Brigar
   - Aluno
+  - DesLike
+  - Coracao
+  - Estudo
   layers:
   - Default
   - TransparentFX

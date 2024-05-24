@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,17 +11,19 @@ public class Personagens : MonoBehaviour
     public float speed = 2f;
     public int tipo;
     private float length;
-    public Slider barraPontosMiniGame;
-     int pontosMiniGame = 0;
+  
+    public Text texto;
 
     void Start()
     {
+     
         length = Mathf.Abs(endX - startX);
     }
 
     void Update()
     {
         Move();
+        DelayFimGameBullying();
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -50,15 +53,15 @@ public class Personagens : MonoBehaviour
     }
     public void AtualizarPontosMiniGame(int quantidade)
     {
-        pontosMiniGame += quantidade;
-        barraPontosMiniGame.value = pontosMiniGame;
-        if (pontosMiniGame >= 5)
+        GameController.controller.pontosMiniGamebullying += quantidade;
+        GameController.controller.barraPontosMiniGame.value = GameController.controller.pontosMiniGamebullying;
+        if (GameController.controller.pontosMiniGamebullying >= 10)
         {
-            pontosMiniGame = 5;
+            GameController.controller.pontosMiniGamebullying = 10;
         }
-        if (pontosMiniGame <= 0)
+        if (GameController.controller.pontosMiniGamebullying <= 0)
         {
-            pontosMiniGame = 0;
+            GameController.controller .pontosMiniGamebullying = 0;
         }
     }
     void Move()
@@ -67,5 +70,20 @@ public class Personagens : MonoBehaviour
         float newX = startX + pingPong;
 
         transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+    }
+    void DelayFimGameBullying()
+    {
+        if (GameController.controller.pontosMiniGamebullying >= 10)
+        {
+            texto.text = "Parabéns!";
+            Invoke("FimGameBullying", 1f);
+        }
+    }
+    void FimGameBullying()
+    {
+        GameController.controller.pontosMiniGamebullying = 0;
+        GameController.controller.barraPontosMiniGame.value = 0;
+        texto.text = "Mini Game";
+        GameController.controller.acabou = true;
     }
 }

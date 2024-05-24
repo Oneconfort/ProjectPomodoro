@@ -6,22 +6,25 @@ using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
+   
     Rigidbody rb;
-    float speed = 5;
+    float speed = 13;
     [SerializeField] private float maxDistance = 10f;
     float viewAngle = 110f;
     private bool isInteracting = false;
     public GameObject imageE;
-
+    Animator animator;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         GameController.controller.player = this;
     }
 
     void FixedUpdate()
     {
         Interagir();
+      //  Estudar();
     }
 
     void Update()
@@ -34,30 +37,19 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        Vector3 moveInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        rb.MovePosition(transform.position + moveInput * Time.fixedDeltaTime * speed);
+        float v = Mathf.Clamp(Input.GetAxis("Vertical"), -0.45f, 0.45f);
+        float h = Mathf.Clamp(Input.GetAxis("Horizontal"), -0.45f, 0.45f);
+        Vector3 moveInput = new Vector3(h, 0, v);
+        Vector3 moveVelocity = moveInput * speed;
 
-        if (moveInput.x != 0)
+        rb.MovePosition(transform.position + moveVelocity * Time.fixedDeltaTime);
+
+        animator.SetFloat("Speed", moveVelocity.magnitude);
+
+        if (moveInput != Vector3.zero)
         {
-            if (moveInput.x > 0)
-            {
-                transform.rotation = Quaternion.Euler(0, 90, 0);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(0, -90, 0);
-            }
-        }
-        if (moveInput.z != 0)
-        {
-            if (moveInput.z > 0)
-            {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-            }
+            Quaternion targetRotation = Quaternion.LookRotation(moveInput);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f); // Smooth rotation
         }
     }
 
@@ -102,7 +94,6 @@ public class Player : MonoBehaviour
                 }
             }
         }
-
         // Se nenhum NPC for encontrado e o jogador não está interagindo, esconde "E"
         if (!foundNPC && !isInteracting)
         {
@@ -118,5 +109,24 @@ public class Player : MonoBehaviour
                 aluno.menuInteracao.SetActive(false);
             }
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Estudo"))
+        {
+            imageE.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                animator.SetTrigger("Estudar");
+                MoveParaDestino(other.transform);
+            }
+        }
+    }
+
+    private void MoveParaDestino(Transform destino)
+    {
+        transform.position = destino.position;
+        transform.rotation = destino.rotation;
     }
 }

@@ -55,7 +55,7 @@ public abstract class Alunos : MonoBehaviour
 
     void FixedUpdate()
     {
-        //if (GameController.controller.isMiniGame == true) { return; }
+        if (GameController.controller.isMiniGame == true ) { return; }
         if (!GameController.controller.isIntervalo)
         {
             if (!desenfilerou)
