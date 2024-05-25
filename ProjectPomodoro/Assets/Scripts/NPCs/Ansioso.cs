@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Ansioso : Alunos
 {
-    void Chorar()
-    {
-
-    }
+   
     protected override void Action1()
     {
         if (state == State.IDLE)
@@ -20,7 +17,7 @@ public class Ansioso : Alunos
         else if (Chegou(target) && !isHappy)
         {
             state = State.CHORAR;
-            emojis[6].SetActive(true);
+            emojis[7].SetActive(true);
         }
         else if(isHappy)
         {

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ReadInput : MonoBehaviour
 {
     public TMP_InputField inputField;
-    public TextMeshProUGUI textMeshProUGUI;
+    public Text textMeshProUGUI;
     private string input, operador;
     public Text[] texts;
     private int resultado, intValue, valor1, valor2, contador;
@@ -34,7 +34,8 @@ public class ReadInput : MonoBehaviour
     public void LerString(string s)
     {
         input = s;
-        intValue = int.Parse(input);
+       
+        int.TryParse(input, out intValue);
     }
     public void Reinicio()
     {
@@ -90,5 +91,6 @@ public class ReadInput : MonoBehaviour
         contador = 0;
         Reinicio();
         GameController.controller.acabou = true;
+        GameController.controller.miniGames[2].SetActive(false);
     }
 }
