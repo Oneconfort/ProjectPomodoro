@@ -6,13 +6,13 @@ using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
-   
+
     Rigidbody rb;
     float speed = 13;
     [SerializeField] private float maxDistance = 10f;
     float viewAngle = 110f;
     private bool isInteracting = false;
-    public GameObject imageE;
+    public GameObject imageE, painelAulaMiniGame;
     Animator animator;
     void Start()
     {
@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         Interagir();
-      //  Estudar();
     }
 
     void Update()
@@ -80,13 +79,14 @@ public class Player : MonoBehaviour
                         if (aluno != null)
                         {
                             aluno.menuInteracao.SetActive(isInteracting);
+                            GameController.controller.acabou = false;
                             //50% de chance de ter minigame
-                            float randomValue = Random.value;
-                            if (randomValue < 0.5f)
-                            {
-                                GameController.controller.acabou = false;
-                                GameController.controller.MiniGames();
-                            }
+                            /* float randomValue = Random.value;
+                             if (randomValue < 0.5f)
+                             {
+                                 GameController.controller.acabou = false;
+                                 GameController.controller.MiniGames();
+                             }*/
                         }
                     }
                     foundNPC = true;
@@ -115,15 +115,25 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Estudo"))
         {
-            imageE.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (!GameController.controller.isIntervalo)
             {
-                animator.SetTrigger("Estudar");
-                MoveParaDestino(other.transform);
+                imageE.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    animator.SetTrigger("Estudar");
+                    MoveParaDestino(other.transform);
+                    painelAulaMiniGame.SetActive(true);
+                }
             }
         }
     }
-
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Estudo"))
+        {
+            painelAulaMiniGame.SetActive(false);
+        }
+    }
     private void MoveParaDestino(Transform destino)
     {
         transform.position = destino.position;

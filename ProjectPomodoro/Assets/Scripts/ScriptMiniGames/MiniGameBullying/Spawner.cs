@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
     public Transform parentTransform;
     bool gerado = false;
     int randomIndex;
-  
+   
     private void Start()
     {
         randomIndex = Random.Range(0, 2); // É exclusivo 

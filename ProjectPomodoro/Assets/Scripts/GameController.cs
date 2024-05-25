@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
     int randomIndex;
     public int paresConectados = 0, totalPares = 3;
     public int pontosMiniGamebullying = 0;
-    public Slider barraPontosMiniGame;
+   
     public GameObject[] emogiFimGame;
     private void Awake()
     {
@@ -62,9 +62,11 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         VerificarFechar();
+        AtualizarNumMinigames();
         if (isMiniGame == true) { return; } // isMiniGame para o tempo se tem mini game
         TempoIntervalo();
         Tempo();
+
     }
     public void AtualizarPontos(int quantidade)
     {
@@ -153,7 +155,7 @@ public class GameController : MonoBehaviour
                 }
                 else
                 {
-                  alunos[i].gameObject.GetComponent<Alunos>().actAtual = alunos[i].gameObject.GetComponent<Alunos>().Discutir;
+                    alunos[i].gameObject.GetComponent<Alunos>().actAtual = alunos[i].gameObject.GetComponent<Alunos>().Discutir;
                 }
             }
         }
@@ -161,7 +163,7 @@ public class GameController : MonoBehaviour
 
     public Transform GetProp()
     {
-        for(int i = 0; i < tarProps.Length; i++)
+        for (int i = 0; i < tarProps.Length; i++)
         {
             if (!tarProps[i].IsOcupado)
             {
@@ -241,11 +243,11 @@ public class GameController : MonoBehaviour
     }
 
     // Metodos dos Minigames 
-    public void MiniGames()
+   /* public void MiniGames()
     {
         numMinigames++;
-        barraMiniGames.value = numMinigames;
-        randomIndex = UnityEngine.Random.Range(3, 4); // É exclusivo 
+        //  barraMiniGames.value = numMinigames;
+        randomIndex = UnityEngine.Random.Range(0, 4); // É exclusivo 
         miniGames[randomIndex].SetActive(true);
         isMiniGame = true;
 
@@ -261,7 +263,11 @@ public class GameController : MonoBehaviour
             acabou = false;
             isMiniGame = false;
         }
-        
+
+    }*/
+    void AtualizarNumMinigames()
+    {
+        barraMiniGames.value = numMinigames;
         if (numMinigames <= 4)
         {
             imagemGame.color = Color.red;
@@ -274,6 +280,83 @@ public class GameController : MonoBehaviour
         {
             imagemGame.color = Color.green;
         }
+    }
+    public void MinigameAulaeConflito(int valor)
+    {
+        acabou = false;
+        switch (valor)
+        {
+            case 0: //matematica
+                numMinigames++;
+                miniGames[2].SetActive(true);
+                isMiniGame = true;
+                if (acabou == true)
+                {
+                    isMiniGame = false;
+                    miniGames[2].SetActive(false);
+                }
+                break;
+            case 1: //liga liga
+                numMinigames++;
+                miniGames[1].SetActive(true);
+                isMiniGame = true;
+
+                uiController.canvas.SetActive(false);
+                cameras[0].SetActive(false);
+                cameras[1].SetActive(true);
+                if (acabou == true)
+                {
+                    miniGames[1].SetActive(false);
+                    acabou = false;
+                    isMiniGame = false;
+                }
+                break;
+            case 2: //ordem
+                numMinigames++;
+                miniGames[0].SetActive(true);
+                isMiniGame = true;
+                if (acabou == true)
+                {
+                    miniGames[0].SetActive(false);
+                    acabou = false;
+                    isMiniGame = false;
+                }
+                break;
+            case 3: //AlunoAncioso
+                numMinigames++;
+                miniGames[4].SetActive(true);
+                isMiniGame = true;
+                if (acabou == true)
+                {
+                    miniGames[4].SetActive(false);
+                    acabou = false;
+                    isMiniGame = false;
+                }
+                break;
+            case 4: //AlunoBagunca
+                numMinigames++;
+                miniGames[5].SetActive(true);
+                isMiniGame = true;
+                if (acabou == true)
+                {
+                    miniGames[5].SetActive(false);
+                    acabou = false;
+                    isMiniGame = false;
+                }
+                break;
+            case 5: //AlunoBagunca
+                numMinigames--;
+                miniGames[6].SetActive(true);
+                isMiniGame = true;
+                if (acabou == true)
+                {
+                    miniGames[6].SetActive(false);
+                    acabou = false;
+                    isMiniGame = false;
+                }
+                break;
+        }
+        player.painelAulaMiniGame.SetActive(false);
     }
     public void VerificarFechar()
     {
@@ -301,8 +384,8 @@ public class GameController : MonoBehaviour
         cameras[1].SetActive(false);
         cameras[0].SetActive(true);
     }
-   
-  
+
+
     void Organize()
     {
         tarMesas = new Target[mesas.Length];
@@ -310,7 +393,7 @@ public class GameController : MonoBehaviour
         tarCad = new Target[cadeiras.Length];
         tarProps = new Target[props.Length];
 
-        for(int i = 0; i < tarMesas.Length; i++)
+        for (int i = 0; i < tarMesas.Length; i++)
         {
             tarMesas[i] = new Target(mesas[i]);
         }
@@ -318,7 +401,7 @@ public class GameController : MonoBehaviour
         {
             tarLoc[i] = new Target(locais[i]);
         }
-        for(int i = 0; i < tarCad.Length; i++)
+        for (int i = 0; i < tarCad.Length; i++)
         {
             tarCad[i] = new Target(cadeiras[i]);
         }

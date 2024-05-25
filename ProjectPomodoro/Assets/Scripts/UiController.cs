@@ -10,7 +10,7 @@ public class UiController : MonoBehaviour
     public GameObject uiPause, painelInicio, intervaloImagem, painelCreditos, painelOpcoes, painelDerrota, canvas;
     bool visivel, visivelUiPause;
     public Slider All, Music, VFX;
-   
+    //public Slider[] barraPontosMiniGame;
     private void Start()
     {
         if (GameController.controller != null)

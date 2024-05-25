@@ -26,7 +26,7 @@ public abstract class Alunos : MonoBehaviour
     public State state;
     public GameObject[] emojis;
     public GameObject menuInteracao;
-    int amizade = 10;
+   public  int amizade = 10;
     public Slider barraAmizade;
 
     public Action actAtual;
@@ -82,6 +82,7 @@ public abstract class Alunos : MonoBehaviour
             actAtual();
         }
         MudarEmoji();
+      //  DecrescerAmizade();
     }
 
     //Metodo para criar as filas de afazeres de cada aluno, provavelmente vou mudar para os script de cada aluno
@@ -157,14 +158,15 @@ public abstract class Alunos : MonoBehaviour
 
     public void DecrescerAmizade() // diminui a amizade com o tempo
     {
-        tempoAtual -= Time.deltaTime;
+       /* tempoAtual -= Time.deltaTime;
 
         if (tempoAtual <= 0f)
         {
             tempoAtual = 0f;
-            AumentarAmizade(-1);
+            //AumentarAmizade(-1);
             tempoAtual = tempoTotal;
-        }
+        }*/
+        AumentarAmizade(-1);
     }
 
     void Estudar()
@@ -280,7 +282,7 @@ public abstract class Alunos : MonoBehaviour
         else
         {
             state = State.COMER;
-            emojis[0].SetActive(true);
+            emojis[1].SetActive(true);
         }
     }
     //Metodo para verificar se o personagem chegou ao destino

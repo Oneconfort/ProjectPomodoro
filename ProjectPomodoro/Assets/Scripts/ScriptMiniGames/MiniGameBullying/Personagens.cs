@@ -54,7 +54,8 @@ public class Personagens : MonoBehaviour
     public void AtualizarPontosMiniGame(int quantidade)
     {
         GameController.controller.pontosMiniGamebullying += quantidade;
-        GameController.controller.barraPontosMiniGame.value = GameController.controller.pontosMiniGamebullying;
+        //GameController.controller.uiController.barraPontosMiniGame[1].value = GameController.controller.pontosMiniGamebullying;
+        //GameController.controller.uiController.barraPontosMiniGame[0].value = GameController.controller.pontosMiniGamebullying;
         if (GameController.controller.pontosMiniGamebullying >= 10)
         {
             GameController.controller.pontosMiniGamebullying = 10;
@@ -82,8 +83,10 @@ public class Personagens : MonoBehaviour
     void FimGameBullying()
     {
         GameController.controller.pontosMiniGamebullying = 0;
-        GameController.controller.barraPontosMiniGame.value = 0;
+     //   GameController.controller.uiController.barraPontosMiniGame[0].value = 0;
+       // GameController.controller.uiController.barraPontosMiniGame[1].value = 0;
         texto.text = "Mini Game";
         GameController.controller.acabou = true;
+        GameController.controller.miniGames[4].SetActive(false);
     }
 }

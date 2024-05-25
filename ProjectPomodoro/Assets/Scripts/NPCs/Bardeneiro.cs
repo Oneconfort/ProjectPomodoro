@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 
 public class Bardeneiro : Alunos
@@ -16,10 +15,10 @@ public class Bardeneiro : Alunos
             target = mesa.transform;
             Move(mesa);
         }
-        else if (Chegou(target))
+        else if (Chegou(target) && !isHappy)
         {
             state = State.QUEBRA;
-            emojis[3].SetActive(true);
+            emojis[7].SetActive(true);
         }
         else if (isHappy)
         {
