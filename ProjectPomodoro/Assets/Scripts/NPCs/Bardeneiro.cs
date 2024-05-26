@@ -12,14 +12,12 @@ public class Bardeneiro : Alunos
         {
             Transform mesa = GameController.controller.GetLocal();
             state = State.Walking;
-            animator.SetTrigger("Andar");
             target = mesa.transform;
             Move(mesa);
         }
         else if (Chegou(target) && !isHappy)
         {
             state = State.QUEBRA;
-            animator.SetBool("Brigar", true);
             emojis[7].SetActive(true);
         }
         else if (isHappy)
