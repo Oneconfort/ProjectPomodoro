@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Fase_Final.unity
     guid: fa6e12f273ec6ee42b377c19babe2f4f
   - enabled: 0
-    path: Assets/Scenes/Fase_Prototype.unity
+    path: Assets/Scenes/nase_Prototype.unity
     guid: 1fc72e3e481231a489d86e3df57507d0
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity

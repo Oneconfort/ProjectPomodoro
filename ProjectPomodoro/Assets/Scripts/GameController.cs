@@ -344,7 +344,7 @@ public class GameController : MonoBehaviour
                     isMiniGame = false;
                 }
                 break;
-            case 5: //AlunoBagunca
+            case 5: 
                 numMinigames--;
                 miniGames[6].SetActive(true);
                 isMiniGame = true;
