@@ -26,12 +26,12 @@ public abstract class Alunos : MonoBehaviour
     public State state;
     public GameObject[] emojis;
     public GameObject menuInteracao;
-   public  int amizade = 10;
+    public  int amizade = 10;
     public Slider barraAmizade;
 
     public Action actAtual;
     [SerializeField] private Queue<Action> IntervaloActs = new Queue<Action>();
-
+    protected Animator animator;
 
     float tempoTotal = 20f; // a cada 20 segundos vai diminuir a amizade
     private float tempoAtual;
@@ -41,6 +41,7 @@ public abstract class Alunos : MonoBehaviour
     private void Start()
     {
         state = State.IDLE;
+        animator = GetComponent<Animator>();
         isCalled = false;
         inConflict = false;
         agentAluno = GetComponent<NavMeshAgent>();
@@ -67,7 +68,7 @@ public abstract class Alunos : MonoBehaviour
                 isHappy = false;
                 normalizou = false;
                 DeslisgarEmojis();
-                state = State.IDLE;
+                ResetTree();
             }
             Estudar();
         }
@@ -75,7 +76,7 @@ public abstract class Alunos : MonoBehaviour
         {
             if (desenfilerou)
             {
-                state = State.IDLE;
+                ResetTree();
                 DeslisgarEmojis();
                 desenfilerou = false;
             }
@@ -175,11 +176,13 @@ public abstract class Alunos : MonoBehaviour
         {
             target = GameController.controller.GetCadeira();
             state = State.Walking;
+            animator.SetTrigger("Andar");
             Move(target);
         }
         else if (Chegou(target))
         {
             state = State.ESTUDAR;
+            animator.SetBool("Estudar", true);
             emojis[0].SetActive(true);
         }
     }
@@ -189,11 +192,13 @@ public abstract class Alunos : MonoBehaviour
         {
             target = GameController.controller.GetMesa();
             state = State.Walking;
+            animator.SetTrigger("Andar");
             Move(target);
         }
         else if (Chegou(target))
         {
             state = State.COMER;
+            animator.SetBool("Comer", true);
             emojis[1].SetActive(true);
         }
         else
@@ -208,11 +213,13 @@ public abstract class Alunos : MonoBehaviour
         {
             target = GameController.controller.GetLocal();
             state = State.Walking;
+            animator.SetTrigger("Andar");
             Move(target);
         }
         if (Chegou(target))
         {
             state = State.BRINCAR;
+            animator.SetBool("Brincar", true);
             emojis[2].SetActive(true);
         }
         else
@@ -276,12 +283,14 @@ public abstract class Alunos : MonoBehaviour
         else if (!Chegou(target))
         {
             state = State.Walking;
+            animator.SetTrigger("Andar");
             DeslisgarEmojis();
             Move(target);
         }
         else
         {
             state = State.COMER;
+            animator.SetBool("Comer", false);
             emojis[1].SetActive(true);
         }
     }
@@ -296,5 +305,15 @@ public abstract class Alunos : MonoBehaviour
         {
             return false;
         }
+    }
+    protected void ResetTree()
+    {
+        state = State.IDLE;
+        animator.SetTrigger("Acabou");
+        animator.SetBool("Brigar", false);
+        animator.SetBool("Estudar", false);
+        animator.SetBool("Chorar", false);
+        animator.SetBool("Brincar", false);
+        animator.SetBool("Comer", false);
     }
 }
