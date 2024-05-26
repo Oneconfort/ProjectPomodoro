@@ -1058,7 +1058,6 @@ GameObject:
   - component: {fileID: 3294914845544240458}
   - component: {fileID: 3048960988640869592}
   - component: {fileID: 3897852519817791328}
-  - component: {fileID: 24247653535227111}
   m_Layer: 0
   m_Name: Bully
   m_TagString: Aluno
@@ -1182,7 +1181,6 @@ MonoBehaviour:
   - {fileID: 1268371630299085819}
   - {fileID: 7917376375310494411}
   menuInteracao: {fileID: 7432840003068284147}
-  amizade: 10
   barraAmizade: {fileID: 3551188837525909566}
 --- !u!195 &3897852519817791328
 NavMeshAgent:
@@ -1206,27 +1204,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &24247653535227111
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7720375051954542949}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 06a660df273260a419400f41f2fe000e, type: 3}
-  m_Controller: {fileID: 9100000, guid: e08b88274c6e0d1408e76403e58e0db0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7731300503426423912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,7 +1592,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9a4ab4ee8f773164cb1263d43d72f68d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.485
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a4ab4ee8f773164cb1263d43d72f68d,
         type: 3}

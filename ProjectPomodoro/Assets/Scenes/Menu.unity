@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028359, g: 0.22571385, b: 0.30692258, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1284,10 +1284,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Fontes: \n\nKinderGarten por Geronimo Font Studios\n\nKefa por Jeremie
-    Hornus\nBoba cups por Khurasan\n\nDavi: Audio, Programa\xE7\xE3o dos bot\xF5es,
-    Maquina de estados dos Npcs\n\nCarolina: Desings da UI, Event Trigger, Anima\xE7\xF5es\n\nLays:
-    Programa\xE7\xE3o, Programa\xE7\xE3o dos bot\xF5es, Maquina de estados do player\n\nPedro:
-    Ancoragem, todos os bot\xF5es, exporta\xE7\xE3o dos modelos"
+    Hornus\nBoba cups por Khurasan\n\nDavi: Audio, Programa\xE7\xE3o dos bot\xF5es\n\nCarolina:
+    Desings da UI, Event Trigger\n\nLays: Programa\xE7\xE3o, Programa\xE7\xE3o dos
+    bot\xF5es\n\nPedro: Ancoragem, todos os bot\xF5es"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb823e953abbff44dba864f1732417e8, type: 2}
   m_sharedMaterial: {fileID: -6271365882234892024, guid: eb823e953abbff44dba864f1732417e8,
