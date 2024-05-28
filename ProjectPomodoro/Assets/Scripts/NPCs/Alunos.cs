@@ -136,6 +136,7 @@ public abstract class Alunos : MonoBehaviour
     {
         if (!isHappy)
         {
+            GameController.controller.isConflito = false;
             isHappy = true;
         }
     }

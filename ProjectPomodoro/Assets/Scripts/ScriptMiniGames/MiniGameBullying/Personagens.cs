@@ -83,8 +83,7 @@ public class Personagens : MonoBehaviour
     void FimGameBullying()
     {
         GameController.controller.pontosMiniGamebullying = 0;
-     //   GameController.controller.uiController.barraPontosMiniGame[0].value = 0;
-       // GameController.controller.uiController.barraPontosMiniGame[1].value = 0;
+    
         texto.text = "Mini Game";
         GameController.controller.acabou = true;
         GameController.controller.miniGames[4].SetActive(false);

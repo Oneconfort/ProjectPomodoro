@@ -20,6 +20,7 @@ public class Bardeneiro : Alunos
         {
             state = State.QUEBRA;
             animator.SetBool("Brigar", true);
+            GameController.controller.isConflito = true;
             emojis[7].SetActive(true);
         }
         else if (isHappy)

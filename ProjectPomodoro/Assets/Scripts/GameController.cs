@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     public UiController uiController;
     public Player player;
 
-    public bool isIntervalo, isMiniGame = false; //Será usado para determinar a movimentação dos alunos // isMiniGame para o tempo de tem mini game
+    public bool isIntervalo, isMiniGame = false, isConflito = false; //Será usado para determinar a movimentação dos alunos // isMiniGame para o tempo de tem mini game
     public int pontosAmizade, numMinigames;
     public Slider barraMiniGames;
     public Image imagemGame;
@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
     int randomIndex;
     public int paresConectados = 0, totalPares = 3;
     public int pontosMiniGamebullying = 0;
-   
+
     public GameObject[] emogiFimGame;
     private void Awake()
     {
@@ -243,28 +243,28 @@ public class GameController : MonoBehaviour
     }
 
     // Metodos dos Minigames 
-   /* public void MiniGames()
-    {
-        numMinigames++;
-        //  barraMiniGames.value = numMinigames;
-        randomIndex = UnityEngine.Random.Range(0, 4); // É exclusivo 
-        miniGames[randomIndex].SetActive(true);
-        isMiniGame = true;
+    /* public void MiniGames()
+     {
+         numMinigames++;
+         //  barraMiniGames.value = numMinigames;
+         randomIndex = UnityEngine.Random.Range(0, 4); // É exclusivo 
+         miniGames[randomIndex].SetActive(true);
+         isMiniGame = true;
 
-        if (randomIndex == 1)
-        {
-            uiController.canvas.SetActive(false);
-            cameras[0].SetActive(false);
-            cameras[1].SetActive(true);
-        }
-        else if (acabou == true)
-        {
-            miniGames[randomIndex].SetActive(false);
-            acabou = false;
-            isMiniGame = false;
-        }
+         if (randomIndex == 1)
+         {
+             uiController.canvas.SetActive(false);
+             cameras[0].SetActive(false);
+             cameras[1].SetActive(true);
+         }
+         else if (acabou == true)
+         {
+             miniGames[randomIndex].SetActive(false);
+             acabou = false;
+             isMiniGame = false;
+         }
 
-    }*/
+     }*/
     void AtualizarNumMinigames()
     {
         barraMiniGames.value = numMinigames;
@@ -323,28 +323,34 @@ public class GameController : MonoBehaviour
                 }
                 break;
             case 3: //AlunoAncioso
-                numMinigames++;
-                miniGames[4].SetActive(true);
-                isMiniGame = true;
-                if (acabou == true)
+                if (isConflito == true)
                 {
-                    miniGames[4].SetActive(false);
-                    acabou = false;
-                    isMiniGame = false;
+                    numMinigames++;
+                    miniGames[4].SetActive(true);
+                    isMiniGame = true;
+                    if (acabou == true)
+                    {
+                        miniGames[4].SetActive(false);
+                        acabou = false;
+                        isMiniGame = false;
+                    }
                 }
                 break;
             case 4: //AlunoBagunca
-                numMinigames++;
-                miniGames[5].SetActive(true);
-                isMiniGame = true;
-                if (acabou == true)
+                if (isConflito == true)
                 {
-                    miniGames[5].SetActive(false);
-                    acabou = false;
-                    isMiniGame = false;
+                    numMinigames++;
+                    miniGames[5].SetActive(true);
+                    isMiniGame = true;
+                    if (acabou == true)
+                    {
+                        miniGames[5].SetActive(false);
+                        acabou = false;
+                        isMiniGame = false;
+                    }
                 }
                 break;
-            case 5: 
+            case 5: // pedra papel tesoura
                 numMinigames--;
                 miniGames[6].SetActive(true);
                 isMiniGame = true;
