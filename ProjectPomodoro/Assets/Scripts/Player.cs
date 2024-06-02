@@ -34,10 +34,24 @@ public class Player : MonoBehaviour
         }
     }
 
+   
     void Move()
     {
         float v = Mathf.Clamp(Input.GetAxis("Vertical"), -0.45f, 0.45f);
         float h = Mathf.Clamp(Input.GetAxis("Horizontal"), -0.45f, 0.45f);
+
+        if (Mathf.Abs(h) > 0 && Mathf.Abs(v) > 0)
+        {
+            if (Mathf.Abs(h) > Mathf.Abs(v))
+            {
+                v = 0;
+            }
+            else
+            {
+                h = 0;
+            }
+        }
+
         Vector3 moveInput = new Vector3(h, 0, v);
         Vector3 moveVelocity = moveInput * speed;
 
