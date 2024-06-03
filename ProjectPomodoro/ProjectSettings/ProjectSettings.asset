@@ -897,7 +897,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -917,11 +923,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 6cda8027-3036-47e8-8346-491c58807298
+  cloudProjectId: 6583bef7-c8aa-4b51-bf46-1dde97461b91
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: ProjectPomodoro 2024-03-14_11-05-23
-  organizationId: davigomesorlandi2014
+  projectName: ProjectPomodoro
+  organizationId: p3dro15
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

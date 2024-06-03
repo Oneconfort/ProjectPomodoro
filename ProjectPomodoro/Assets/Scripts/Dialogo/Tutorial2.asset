@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3347662919202ec47a0b700ce2bf83fc, type: 3}
   m_Name: Tutorial2
   m_EditorClassIdentifier: 
-  texto: "Seu objetivo \xE9 combater o bullying e deixar todos felizes."
+  texto: Voce precisa combater o bullying, assim completando a barra acima deixando
+    todos felizes.
   sprite: {fileID: -484683745, guid: ba39c5b640aebc143bbe3d961de38d43, type: 3}
-  proxDialogo: {fileID: 11400000, guid: 76689ad36307e3e4b94dc4ba815f3a05, type: 2}
+  proxDialogo: {fileID: 11400000, guid: 638c261b45f5f6a40aa65ed0a679bb80, type: 2}

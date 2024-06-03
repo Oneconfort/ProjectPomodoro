@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3347662919202ec47a0b700ce2bf83fc, type: 3}
-  m_Name: Tutorial3
+  m_Name: Tutorial4
   m_EditorClassIdentifier: 
-  texto: Pra isso voce precisa completar Mini-Jogos, assim granhando pontos.
+  texto: "Para alguns Mini-Jogos voce precisa ligar corretamente objetos, resolver
+    contas matematicas ou contar at\xE9 certo numero. Ha tambem Mini-Jogos especificos
+    para alguns alunos que dependem do seu humor."
   sprite: {fileID: -1500044569, guid: ba39c5b640aebc143bbe3d961de38d43, type: 3}
-  proxDialogo: {fileID: 11400000, guid: c9bae1fd9705a1e47b75617d8ab3be8b, type: 2}
+  proxDialogo: {fileID: 11400000, guid: 76689ad36307e3e4b94dc4ba815f3a05, type: 2}

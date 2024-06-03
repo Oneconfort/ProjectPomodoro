@@ -20,7 +20,7 @@ public class DialogoControle : MonoBehaviour
             contador++;
         }
 
-        if( contador == 4)
+        if( contador == 6)
         {
             painelDialogo.SetActive(false);
             GameController.controller.isMiniGame = false;

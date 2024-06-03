@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3347662919202ec47a0b700ce2bf83fc, type: 3}
-  m_Name: Tutorial1
+  m_Name: Tutorial5
   m_EditorClassIdentifier: 
-  texto: Eu irei te explicar como funciona o mundo de Pomodoro.
-  sprite: {fileID: 779962474, guid: ba39c5b640aebc143bbe3d961de38d43, type: 3}
-  proxDialogo: {fileID: 11400000, guid: 6c22cf4cf58118a43844d3fb11f69cbb, type: 2}
+  texto: Boa sorte e seja feliz.
+  sprite: {fileID: -1669469945, guid: ba39c5b640aebc143bbe3d961de38d43, type: 3}
+  proxDialogo: {fileID: 11400000, guid: b2b3355d9dfbbef499e644e3cc4d4730, type: 2}
