@@ -32,22 +32,22 @@ public class AudioController : MonoBehaviour
     {
         if (volume == -50)
         {
-            audio.SetFloat("MasterVolume", -80);
+            audio.SetFloat("Master", -80);
         }
         else
         {
-            audio.SetFloat("MasterVolume", volume);
+            audio.SetFloat("Master", volume);
         }
     }
     public void ChangeMusicVolume(float volume)
     {
         if (volume == -50)
         {
-            audio.SetFloat("MusicVolume", -80);
+            audio.SetFloat("Music", -80);
         }
         else
         {
-            audio.SetFloat("MusicVolume", volume);
+            audio.SetFloat("Music", volume);
         }
 
     }
@@ -55,11 +55,11 @@ public class AudioController : MonoBehaviour
     {
         if (volume == -50)
         {
-            audio.SetFloat("VFXVolume", -80);
+            audio.SetFloat("VFX", -80);
         }
         else
         {
-            audio.SetFloat("VFXVolume", volume);
+            audio.SetFloat("VFX", volume);
         }
     }
     public void ChangeMusic(string scene)
@@ -69,6 +69,9 @@ public class AudioController : MonoBehaviour
             case "Menu":
                 gameMusic.clip = myAudios[0];
             break;
+            case "Fase_Final":
+                gameMusic.clip = myAudios[1];
+                break;
             default:
                 gameMusic.clip = myAudios[0];
                 break;

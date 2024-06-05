@@ -1,0 +1,647 @@
+fileFormatVersion: 2
+guid: c5b36516be777e9448a97146e1a55711
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ArmatureAluno|Briga
+      takeName: ArmatureAluno|Briga
+      internalID: 8061003087069625623
+      firstFrame: 0
+      lastFrame: 69
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ArmatureAluno|Brincando
+      takeName: ArmatureAluno|Brincando
+      internalID: -1333322745348315921
+      firstFrame: 0
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: 'ArmatureAluno|Chorando '
+      takeName: 'ArmatureAluno|Chorando '
+      internalID: 8141751772535972085
+      firstFrame: 0
+      lastFrame: 89
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ArmatureAluno|Comendo
+      takeName: ArmatureAluno|Comendo
+      internalID: 3734588622686671583
+      firstFrame: 0
+      lastFrame: 105
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ArmatureAluno|Estudando
+      takeName: ArmatureAluno|Estudando
+      internalID: 5364197806437629265
+      firstFrame: 0
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ArmatureAluno|GirarAnim
+      takeName: ArmatureAluno|GirarAnim
+      internalID: 1683624740147265981
+      firstFrame: 0
+      lastFrame: 26
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: ArmatureAluno|Idle
+      internalID: -8037327905495200343
+      firstFrame: 0
+      lastFrame: 72
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ArmatureAluno|WalkingAnimacao
+      takeName: ArmatureAluno|WalkingAnimacao
+      internalID: 58670634789907845
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: PersonagePrincipal(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ArmatureAluno
+      parentName: PersonagePrincipal(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 4.3297806e-17, z: 4.3297806e-17, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Root
+      parentName: ArmatureAluno
+      position: {x: -0, y: -0.0069290996, z: 0.02487111}
+      rotation: {x: 1, y: -3.3820767e-23, z: 0.00000055233505, w: 6.123234e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Master
+      parentName: Root
+      position: {x: 0.0000022093402, y: 0, z: -2}
+      rotation: {x: 0.94736016, y: -0.00000003816722, z: 0.0000009335863, w: 0.32016984}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Corpo
+      parentName: Master
+      position: {x: -0.000000021544679, y: -0.006929159, z: 0.02487111}
+      rotation: {x: -0.96640694, y: 0.000000111320695, z: -0.00000041857567, w: -0.25701708}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Perna.L
+      parentName: Corpo
+      position: {x: -0.57860947, y: -0.1670692, z: -0.2245745}
+      rotation: {x: 0.98584986, y: 0.0000023063994, z: -0.000010877751, w: 0.167631}
+      scale: {x: 1, y: 1, z: 1.0000033}
+    - name: Joelho.L
+      parentName: Perna.L
+      position: {x: 0.00000004249891, y: 0.70341164, z: 0.00000002874549}
+      rotation: {x: 0.38104188, y: -0.0000033601466, z: 0.000020462592, w: 0.9245578}
+      scale: {x: 1, y: 1.0000002, z: 0.9999994}
+    - name: Joelho.L_end
+      parentName: Joelho.L
+      position: {x: -0, y: 0.67147505, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Perna.R
+      parentName: Corpo
+      position: {x: 0.57860947, y: -0.1670692, z: -0.2245745}
+      rotation: {x: 0.98584986, y: -0.000002410601, z: 0.000010939811, w: 0.167631}
+      scale: {x: 1, y: 1, z: 1.0000033}
+    - name: Joelho.R
+      parentName: Perna.R
+      position: {x: -0.000000018696795, y: 0.70341164, z: 0.000000019720574}
+      rotation: {x: 0.38104188, y: 0.0000035805842, z: -0.000020553438, w: 0.9245578}
+      scale: {x: 1, y: 1.0000002, z: 0.9999994}
+    - name: Joelho.R_end
+      parentName: Joelho.R
+      position: {x: -0, y: 0.67147505, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SustentadorUP.L
+      parentName: Corpo
+      position: {x: -0.07955129, y: 1.7221203, z: 5.1708714e-20}
+      rotation: {x: 0.000000015454576, y: -0.000000015454575, z: 0.7071068, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SustentadorUP.L_end
+      parentName: SustentadorUP.L
+      position: {x: -0, y: 0.9850065, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SustentadorDown.R
+      parentName: Corpo
+      position: {x: 0.07955129, y: 0.05325365, z: -5.1708714e-20}
+      rotation: {x: 0.000000015454576, y: 0.000000015454575, z: -0.7071068, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SustentadorDown.R_end
+      parentName: SustentadorDown.R
+      position: {x: -0, y: 0.9850065, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SustentadorDown.L
+      parentName: Corpo
+      position: {x: -0.07955129, y: 0.05325365, z: 5.1708714e-20}
+      rotation: {x: 0.000000015454576, y: -0.000000015454575, z: 0.7071068, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SustentadorDown.L_end
+      parentName: SustentadorDown.L
+      position: {x: -0, y: 0.9850065, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone
+      parentName: Corpo
+      position: {x: -0, y: 2.2791448, z: 0}
+      rotation: {x: -0, y: -0.0000001192092, z: 1.2194146e-31, w: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Helice
+      parentName: Bone
+      position: {x: 0.014201793, y: 0.72342443, z: -0.08280393}
+      rotation: {x: 0.00000030686377, y: -0.00000014551395, z: 0.7071068, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Helice_end
+      parentName: Helice
+      position: {x: -0, y: 0.587732, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mochila
+      parentName: Corpo
+      position: {x: -9.861166e-19, y: 1.2504935, z: -1.5170372}
+      rotation: {x: -0.7933534, y: 1.9785597e-19, z: 2.5785083e-19, w: 0.60876137}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mochila_end
+      parentName: Mochila
+      position: {x: -0, y: 0.9999999, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Olho.L
+      parentName: Corpo
+      position: {x: -0.55811083, y: 0.9484546, z: 0.8019351}
+      rotation: {x: 0.7071067, y: 0.00000022197239, z: 0.00000022197237, w: 0.7071068}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Olho.L_end
+      parentName: Olho.L
+      position: {x: -0, y: 0.12406254, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Olho.R
+      parentName: Corpo
+      position: {x: 0.55811083, y: 0.9484546, z: 0.8019351}
+      rotation: {x: 0.7071067, y: -0.00000022197239, z: -0.00000022197237, w: 0.7071068}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Olho.R_end
+      parentName: Olho.R
+      position: {x: -0, y: 0.12406254, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Braco.R
+      parentName: Corpo
+      position: {x: 0.8935146, y: 1.3708537, z: -0.12783301}
+      rotation: {x: 0.005559263, y: 0.006860173, z: 0.7228883, w: -0.69090843}
+      scale: {x: 0.9999997, y: 1, z: 0.99999994}
+    - name: Cotovelo.R
+      parentName: Braco.R
+      position: {x: -0.000000051499228, y: 0.67911595, z: -0.000000011175871}
+      rotation: {x: -0.32346717, y: 0.16448247, z: -0.046146408, w: 0.93069065}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Pulso.R
+      parentName: Cotovelo.R
+      position: {x: -0.00000043958426, y: 0.27762616, z: 0.0000001937151}
+      rotation: {x: 0.4019833, y: -0.016136535, z: 0.19233812, w: 0.8950727}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mao.R
+      parentName: Pulso.R
+      position: {x: 0.000000029802322, y: 0.65236384, z: 0.00000010430813}
+      rotation: {x: -0.05030461, y: -0.18293913, z: -0.03066658, w: 0.9813574}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: Dedinhos.R
+      parentName: Mao.R
+      position: {x: -0.038049486, y: 0.6233363, z: -0.18059677}
+      rotation: {x: 0.042842735, y: 0.00054842216, z: 0.016171122, w: 0.99895084}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Dedinhos.R_end
+      parentName: Dedinhos.R
+      position: {x: -0, y: 0.27957153, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dedo.R
+      parentName: Mao.R
+      position: {x: -0.04288206, y: 0.64819914, z: 0.15963687}
+      rotation: {x: 0.05106067, y: -0.00091740454, z: -0.012681116, w: 0.9986146}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Dedo.R_end
+      parentName: Dedo.R
+      position: {x: -0, y: 0.27957138, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dedao.R
+      parentName: Mao.R
+      position: {x: 0.13262272, y: 0.22830375, z: 0.3403293}
+      rotation: {x: 0.18714686, y: -0.058500055, z: 0.00955529, w: 0.98054194}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: Dedao.R_end
+      parentName: Dedao.R
+      position: {x: -0, y: 0.20463207, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SustentadorUP.R
+      parentName: Corpo
+      position: {x: 0.07955129, y: 1.7221203, z: -5.1708714e-20}
+      rotation: {x: 0.000000015454576, y: 0.000000015454575, z: -0.7071068, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SustentadorUP.R_end
+      parentName: SustentadorUP.R
+      position: {x: -0, y: 0.9850065, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Braco.L
+      parentName: Corpo
+      position: {x: -0.8935146, y: 1.3708537, z: -0.12783301}
+      rotation: {x: -0.0055593536, y: 0.0068601705, z: 0.7228884, w: 0.69090843}
+      scale: {x: 0.9999997, y: 1, z: 0.99999994}
+    - name: Cotovelo.L
+      parentName: Braco.L
+      position: {x: 0.000000051499228, y: 0.67911595, z: -0.000000011175871}
+      rotation: {x: -0.32346725, y: -0.16448246, z: 0.046146374, w: 0.9306906}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: Pulso.L
+      parentName: Cotovelo.L
+      position: {x: 0.00000043958426, y: 0.27762616, z: 0.0000001937151}
+      rotation: {x: 0.4019833, y: 0.016136535, z: -0.19233812, w: 0.8950727}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mao.L
+      parentName: Pulso.L
+      position: {x: -0.000000029802322, y: 0.65236384, z: 0.00000010430813}
+      rotation: {x: -0.05030461, y: 0.18293913, z: 0.03066658, w: 0.9813574}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: Dedinhos.L
+      parentName: Mao.L
+      position: {x: 0.038049486, y: 0.6233363, z: -0.18059677}
+      rotation: {x: 0.042843174, y: -0.000548586, z: -0.016171047, w: 0.99895084}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: Dedinhos.L_end
+      parentName: Dedinhos.L
+      position: {x: -0, y: 0.27957153, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dedo.L
+      parentName: Mao.L
+      position: {x: 0.04288206, y: 0.64819914, z: 0.15963687}
+      rotation: {x: 0.05106098, y: 0.00091743434, z: 0.0126809245, w: 0.9986146}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Dedo.L_end
+      parentName: Dedo.L
+      position: {x: -0, y: 0.27957138, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dedao.L
+      parentName: Mao.L
+      position: {x: -0.13262272, y: 0.22830375, z: 0.3403293}
+      rotation: {x: 0.1871481, y: 0.05849986, z: -0.00955613, w: 0.9805417}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: Dedao.L_end
+      parentName: Dedao.L
+      position: {x: -0, y: 0.20463207, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IkLegControl.L
+      parentName: Root
+      position: {x: -0.5786361, y: -0.28805208, z: -0.53809863}
+      rotation: {x: 0.9574304, y: 0.01439377, z: 0.01383698, w: -0.28797272}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Calcanhar.L
+      parentName: IkLegControl.L
+      position: {x: 0.00000001346416, y: 0.00000029802322, z: 0.00000030256342}
+      rotation: {x: 0.9277553, y: 0.000014381331, z: -0.0000034579155, w: -0.3731892}
+      scale: {x: 1, y: 0.99999994, z: 0.9999997}
+    - name: Pe.L
+      parentName: Calcanhar.L
+      position: {x: -0.00000005738093, y: 0.6038278, z: -0.0000000199434}
+      rotation: {x: 0.03860277, y: 0.0030169173, z: 0.0074982927, w: 0.99922204}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Pe.L_end
+      parentName: Pe.L
+      position: {x: -0, y: 0.58676994, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PolePerna.L
+      parentName: IkLegControl.L
+      position: {x: 0.0000061556166, y: -0.99769735, z: 0.6060821}
+      rotation: {x: 1, y: -1.0630451e-21, z: 0.000017360846, w: 6.123234e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PolePerna.L_end
+      parentName: PolePerna.L
+      position: {x: -0, y: 0.7900922, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: IkLegControl.R
+      parentName: Root
+      position: {x: 0.5786373, y: -0.28805208, z: -0.5380973}
+      rotation: {x: 0.95743054, y: -0.014393445, z: -0.013835874, w: -0.28797275}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Calcanhar.R
+      parentName: IkLegControl.R
+      position: {x: 0.000000022324457, y: 0.00000029802322, z: 0.00000032538446}
+      rotation: {x: 0.9277553, y: -0.000014393199, z: 0.0000034284442, w: -0.3731892}
+      scale: {x: 1, y: 0.99999994, z: 0.9999997}
+    - name: Pe.R
+      parentName: Calcanhar.R
+      position: {x: 0.000000057389116, y: 0.6038278, z: -0.000000019923391}
+      rotation: {x: 0.038602673, y: -0.0030169436, z: -0.0074983533, w: 0.999222}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Pe.R_end
+      parentName: Pe.R
+      position: {x: -0, y: 0.58676994, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PolePerna.R
+      parentName: IkLegControl.R
+      position: {x: -0.0000060813, y: -0.99769735, z: 0.6060821}
+      rotation: {x: 1, y: 1.0703446e-21, z: -0.000017480053, w: 6.123234e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PolePerna.R_end
+      parentName: PolePerna.R
+      position: {x: -0, y: 0.7900922, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Aluno
+      parentName: PersonagePrincipal(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: -0.000000015454312, z: 0.000000015454312, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: Root
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d4fcc8a42c615114aa2729f1a9f7bfa9,
+    type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

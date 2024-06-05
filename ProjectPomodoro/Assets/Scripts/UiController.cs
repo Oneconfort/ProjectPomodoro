@@ -9,7 +9,7 @@ public class UiController : MonoBehaviour
 {
     public GameObject uiPause, painelInicio, intervaloImagem, painelCreditos, painelOpcoes, painelDerrota, canvas;
     bool visivel, visivelUiPause;
-    public Slider All, Music, VFX;
+    public Slider Master, Music, VFX;
     //public Slider[] barraPontosMiniGame;
     private void Start()
     {
@@ -107,7 +107,7 @@ public class UiController : MonoBehaviour
     }
     public void ChangeAllVolume()
     {
-        AudioController.audioController.ChangeAllVolume(All.value);
+        AudioController.audioController.ChangeAllVolume(Master.value);
     }
     public void ChangeMUsicVolume()
     {
