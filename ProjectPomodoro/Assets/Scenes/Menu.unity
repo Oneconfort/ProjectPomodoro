@@ -1142,7 +1142,8 @@ MonoBehaviour:
     Hornus\nBoba cups por Khurasan\n\nDavi: Audio, Programa\xE7\xE3o dos bot\xF5es,
     Maquina de estados dos Npcs\n\nCarolina: Desings da UI, Event Trigger, Anima\xE7\xF5es\n\nLays:
     Programa\xE7\xE3o, Programa\xE7\xE3o dos bot\xF5es, Maquina de estados do player\n\nPedro:
-    Ancoragem, todos os bot\xF5es, exporta\xE7\xE3o dos modelos"
+    Ancoragem, todos os bot\xF5es, exporta\xE7\xE3o dos modelos\n\nProjeto feito
+    em parceria com: Escola Municipal Limoeiro"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb823e953abbff44dba864f1732417e8, type: 2}
   m_sharedMaterial: {fileID: -6271365882234892024, guid: eb823e953abbff44dba864f1732417e8,
@@ -1170,8 +1171,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.4
-  m_fontSizeBase: 15.4
+  m_fontSize: 13.6
+  m_fontSizeBase: 13.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1923,7 +1924,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -213.6}
+  m_AnchoredPosition: {x: -70.3, y: -213.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &587858535
