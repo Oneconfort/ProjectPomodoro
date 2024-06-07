@@ -183,6 +183,7 @@ public abstract class Alunos : MonoBehaviour
         else if (Chegou(target))
         {
             state = State.ESTUDAR;
+            transform.eulerAngles = new Vector3(0, 0, 0);
             animator.SetBool("Estudar", true);
             emojis[0].SetActive(true);
         }

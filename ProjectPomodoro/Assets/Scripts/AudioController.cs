@@ -9,6 +9,12 @@ public class AudioController : MonoBehaviour
     public AudioClip[] myAudios;
     private AudioSource gameMusic;
     public AudioMixer audio;
+    private float masterVolume;
+    private float musicVolume ;
+    private float vfxVolume ;
+
+
+
     private void Awake()
     {
         if (audioController == null)
@@ -17,65 +23,74 @@ public class AudioController : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
     }
 
-    public void Start()
+    private void Start()
     {
         gameMusic = GetComponent<AudioSource>();
+        if (gameMusic == null)
+        {
+           // Debug.LogError("AudioSource component missing on AudioController GameObject.");
+            return;
+        }
     }
 
     public void ChangeAllVolume(float volume)
     {
-        if (volume == -50)
-        {
-            audio.SetFloat("Master", -80);
-        }
-        else
-        {
-            audio.SetFloat("Master", volume);
-        }
+        masterVolume = volume == -50 ? -80 : volume;
+        audio.SetFloat("Master", masterVolume);
     }
+
     public void ChangeMusicVolume(float volume)
     {
-        if (volume == -50)
-        {
-            audio.SetFloat("Music", -80);
-        }
-        else
-        {
-            audio.SetFloat("Music", volume);
-        }
-
+        musicVolume = volume == -50 ? -80 : volume;
+        audio.SetFloat("Music", musicVolume);
     }
+
     public void ChangeVFXVolume(float volume)
     {
-        if (volume == -50)
+        vfxVolume = volume == -50 ? -80 : volume;
+        audio.SetFloat("VFX", vfxVolume);
+    }
+
+    public void ChangeMusic(string scene)
+    {
+        if (gameMusic == null)
         {
-            audio.SetFloat("VFX", -80);
+            Debug.LogError("AudioSource component missing on AudioController GameObject.");
+            return;
+        }
+
+        switch (scene)
+        {
+            case "Menu":
+                gameMusic.clip = myAudios.Length > 0 ? myAudios[0] : null;
+                break;
+            case "Fase_Final":
+                gameMusic.clip = myAudios.Length > 1 ? myAudios[1] : null;
+                break;
+            default:
+                gameMusic.clip = myAudios.Length > 0 ? myAudios[0] : null;
+                break;
+        }
+
+        if (gameMusic.clip != null)
+        {
+            gameMusic.Play();
         }
         else
         {
-            audio.SetFloat("VFX", volume);
+            Debug.LogWarning("No audio clip assigned for the specified scene.");
         }
     }
-    public void ChangeMusic(string scene)
+
+    private void ApplyStoredVolumes()
     {
-        switch (scene)
-        { 
-            case "Menu":
-                gameMusic.clip = myAudios[0];
-            break;
-            case "Fase_Final":
-                gameMusic.clip = myAudios[1];
-                break;
-            default:
-                gameMusic.clip = myAudios[0];
-                break;
-        }
-        gameMusic.Play();
+        audio.SetFloat("Master", masterVolume);
+        audio.SetFloat("Music", musicVolume);
+        audio.SetFloat("VFX", vfxVolume);
     }
 }

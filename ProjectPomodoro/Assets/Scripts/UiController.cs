@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.Burst.CompilerServices;
+using Unity.VisualScripting.FullSerializer;
 
 public class UiController : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class UiController : MonoBehaviour
 
             GameController.controller.uiController = this;
         }
-
+        SetValores();
     }
 
     private void Update()
@@ -104,6 +105,15 @@ public class UiController : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    void SetValores()
+    {
+        AudioController.audioController.audio.GetFloat("Master", out float auxiliar);
+        if (Master != null) Master.value = auxiliar;
+        AudioController.audioController.audio.GetFloat("Music", out float auxiliar2);
+        if (Music != null) Music.value = auxiliar2;
+        AudioController.audioController.audio.GetFloat("VFX", out float auxiliar3);
+        if (VFX != null) VFX.value = auxiliar3;
     }
     public void ChangeAllVolume()
     {
