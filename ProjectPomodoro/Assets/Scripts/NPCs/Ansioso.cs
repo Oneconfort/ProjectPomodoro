@@ -10,7 +10,6 @@ public class Ansioso : Alunos
         if (state == State.IDLE)
         {
             Transform mesa = GameController.controller.GetLocal();
-            state = State.Walking;
             animator.SetTrigger("Andar");
             target = mesa.transform;
             Move(mesa);

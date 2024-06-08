@@ -89,7 +89,7 @@ public abstract class Alunos : MonoBehaviour
     //Metodo para criar as filas de afazeres de cada aluno, provavelmente vou mudar para os script de cada aluno
     void EnqueueTasks()
     {
-        Action[] ativs = { Action1, Comer, Brincar};
+        Action[] ativs = { Action1, Comer, Brincar, Action1, Action1 };
         int rnd1 = Random.Range(0, ativs.Length);
         int rnd2 = Random.Range(0, ativs.Length);
         if (rnd1 == rnd2)
@@ -102,6 +102,7 @@ public abstract class Alunos : MonoBehaviour
     }
     public void Move(Transform target)
     {
+        state = State.Walking;
         agentAluno.SetDestination(target.transform.position);
     }
     void MudarEmoji()
@@ -176,7 +177,6 @@ public abstract class Alunos : MonoBehaviour
         if (state == State.IDLE)
         {
             target = GameController.controller.GetCadeira();
-            state = State.Walking;
             animator.SetTrigger("Andar");
             Move(target);
         }
@@ -193,7 +193,6 @@ public abstract class Alunos : MonoBehaviour
         if (state == State.IDLE)
         {
             target = GameController.controller.GetMesa();
-            state = State.Walking;
             animator.SetTrigger("Andar");
             Move(target);
         }
@@ -214,7 +213,6 @@ public abstract class Alunos : MonoBehaviour
         if (state == State.IDLE)
         {
             target = GameController.controller.GetLocal();
-            state = State.Walking;
             animator.SetTrigger("Andar");
             Move(target);
         }
@@ -234,17 +232,20 @@ public abstract class Alunos : MonoBehaviour
     {
         if (state == State.IDLE)
         {
-            if (!isCalled)
-            {
-                target = GameController.controller.GetLocal();
-                GameController.controller.GetAluno(target, false);
-            }
+            isCalled = true;
+            target = GameController.controller.GetLocal();
             Move(target);
-            state = State.Walking;
             DeslisgarEmojis();
 
         }else if (Chegou(target) && !isHappy)
         {
+            if (state == State.Walking)
+            {
+                if (!isCalled)
+                {
+                    GameController.controller.GetAluno(target, false);
+                }
+            }
             state = State.DISCUTIR;
             emojis[3].SetActive(true);
             DecrescerAmizade();
@@ -256,15 +257,14 @@ public abstract class Alunos : MonoBehaviour
     }
     public void SejaVitima()
     {
-        if (state == State.IDLE)
+        if (state != State.Walking && state != State.CHORAR && !isHappy)
         {
             Move(target);
-            state = State.Walking;
             DeslisgarEmojis();
         }
         if (Chegou(target) && !isHappy)
         {
-            state = State.VITIMA;
+            state = State.CHORAR;
             emojis[6].SetActive(true);
             DecrescerAmizade();
         }
@@ -284,7 +284,6 @@ public abstract class Alunos : MonoBehaviour
         }
         else if (!Chegou(target))
         {
-            state = State.Walking;
             animator.SetTrigger("Andar");
             DeslisgarEmojis();
             Move(target);
