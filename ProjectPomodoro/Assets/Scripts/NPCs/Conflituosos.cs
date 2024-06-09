@@ -25,9 +25,14 @@ public class Conflituosos : Alunos
             else
             if (!isHappy)
             {
+                animator.SetBool("Brigar", true);
+                DecrescerAmizade();
                 state = State.BULLYING;
                 emojis[2].SetActive(true);
-                DecrescerAmizade();
+            }
+            else
+            {
+                Nomarlizar();
             }
         }
     }

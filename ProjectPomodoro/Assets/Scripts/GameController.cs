@@ -157,6 +157,7 @@ public class GameController : MonoBehaviour
                 {
                     alunos[i].gameObject.GetComponent<Alunos>().actAtual = alunos[i].gameObject.GetComponent<Alunos>().Discutir;
                 }
+                break;
             }
         }
     }

@@ -18,7 +18,7 @@ public abstract class Alunos : MonoBehaviour
 
     private bool desenfilerou = false;
     private bool normalizou = false;
-    protected bool isHappy = false;
+    [SerializeField]protected bool isHappy = false;
     public bool isCalled;
     public bool inConflict;
 
@@ -103,6 +103,8 @@ public abstract class Alunos : MonoBehaviour
     public void Move(Transform target)
     {
         state = State.Walking;
+        animator.SetTrigger("Acabou");
+        animator.SetTrigger("Andar");
         agentAluno.SetDestination(target.transform.position);
     }
     void MudarEmoji()
@@ -145,6 +147,7 @@ public abstract class Alunos : MonoBehaviour
     {
         amizade += quantidade;
         barraAmizade.value = amizade;
+        isHappy = true;
         if (amizade >= 10)
         {
             amizade = 10;
@@ -161,15 +164,15 @@ public abstract class Alunos : MonoBehaviour
 
     public void DecrescerAmizade() // diminui a amizade com o tempo
     {
-       /* tempoAtual -= Time.deltaTime;
+        tempoAtual -= Time.deltaTime;
 
         if (tempoAtual <= 0f)
         {
             tempoAtual = 0f;
-            //AumentarAmizade(-1);
+            AumentarAmizade(-1);
             tempoAtual = tempoTotal;
-        }*/
-        AumentarAmizade(-1);
+        }
+        //AumentarAmizade(-1);
     }
 
     void Estudar()
@@ -177,7 +180,6 @@ public abstract class Alunos : MonoBehaviour
         if (state == State.IDLE)
         {
             target = GameController.controller.GetCadeira();
-            animator.SetTrigger("Andar");
             Move(target);
         }
         else if (Chegou(target))
@@ -193,7 +195,6 @@ public abstract class Alunos : MonoBehaviour
         if (state == State.IDLE)
         {
             target = GameController.controller.GetMesa();
-            animator.SetTrigger("Andar");
             Move(target);
         }
         else if (Chegou(target))
@@ -213,7 +214,6 @@ public abstract class Alunos : MonoBehaviour
         if (state == State.IDLE)
         {
             target = GameController.controller.GetLocal();
-            animator.SetTrigger("Andar");
             Move(target);
         }
         if (Chegou(target))
@@ -241,13 +241,14 @@ public abstract class Alunos : MonoBehaviour
         {
             if (state == State.Walking)
             {
-                if (!isCalled)
+                if (isCalled)
                 {
                     GameController.controller.GetAluno(target, false);
                 }
             }
             state = State.DISCUTIR;
             emojis[3].SetActive(true);
+            animator.SetBool("Brincar", true);
             DecrescerAmizade();
         }
         else
@@ -257,14 +258,15 @@ public abstract class Alunos : MonoBehaviour
     }
     public void SejaVitima()
     {
-        if (state != State.Walking && state != State.CHORAR && !isHappy)
+        if (!Chegou(target))
         {
             Move(target);
             DeslisgarEmojis();
         }
-        if (Chegou(target) && !isHappy)
+        else if (!isHappy)
         {
             state = State.CHORAR;
+            animator.SetBool("Chorar", true);
             emojis[6].SetActive(true);
             DecrescerAmizade();
         }

@@ -18,7 +18,7 @@ public class Ansioso : Alunos
         {
             state = State.CHORAR;
             GameController.controller.isConflito = true;
-            animator.SetBool("Comer", true);
+            animator.SetBool("Chorar", true);
             emojis[7].SetActive(true);
         }
         else if(isHappy)
