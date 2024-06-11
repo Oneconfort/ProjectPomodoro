@@ -125,6 +125,7 @@ public class GameController : MonoBehaviour
     public void PararJogo()
     {
         textoMinigames.text = "Mini jogos:" + numMinigames;
+        AnalyticsTest.instance.AddAnalytics("Player", "Mini games jogados", numMinigames.ToString());
         textoPontos.text = "Total de pontos:" + (pontosAmizade * numMinigames);
         if ((pontosAmizade * numMinigames) >= 500)
         {
@@ -243,29 +244,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    // Metodos dos Minigames 
-    /* public void MiniGames()
-     {
-         numMinigames++;
-         //  barraMiniGames.value = numMinigames;
-         randomIndex = UnityEngine.Random.Range(0, 4); // É exclusivo 
-         miniGames[randomIndex].SetActive(true);
-         isMiniGame = true;
-
-         if (randomIndex == 1)
-         {
-             uiController.canvas.SetActive(false);
-             cameras[0].SetActive(false);
-             cameras[1].SetActive(true);
-         }
-         else if (acabou == true)
-         {
-             miniGames[randomIndex].SetActive(false);
-             acabou = false;
-             isMiniGame = false;
-         }
-
-     }*/
     void AtualizarNumMinigames()
     {
         barraMiniGames.value = numMinigames;
@@ -295,6 +273,7 @@ public class GameController : MonoBehaviour
                 {
                     isMiniGame = false;
                     miniGames[2].SetActive(false);
+
                 }
                 break;
             case 1: //liga liga
@@ -352,7 +331,7 @@ public class GameController : MonoBehaviour
                 }
                 break;
             case 5: // pedra papel tesoura
-                numMinigames--;
+                
                 miniGames[6].SetActive(true);
                 isMiniGame = true;
                 if (acabou == true)
@@ -413,4 +392,5 @@ public class GameController : MonoBehaviour
             tarCad[i] = new Target(cadeiras[i]);
         }
     }
+  
 }

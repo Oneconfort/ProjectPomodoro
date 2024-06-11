@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
@@ -14,11 +15,14 @@ public class Player : MonoBehaviour
     private bool isInteracting = false;
     public GameObject imageE, painelAulaMiniGame;
     Animator animator;
+
+    int interacaoAluno = 0, interacaoEstudo =0;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         GameController.controller.player = this;
+        AnalyticsTest.instance.AddAnalytics("Game", "Start", DateTime.Now.ToString("d/M/y hh:mm"));
     }
 
     void FixedUpdate()
@@ -83,7 +87,7 @@ public class Player : MonoBehaviour
 
                 if (angle <= viewAngle * 0.5f)
                 {
-                    imageE.SetActive(true); // Mostra o ícone "E" em cima do player para interagir
+                    imageE.SetActive(true); 
 
                     if (Input.GetKeyDown(KeyCode.E) && !isInteracting)
                     {
@@ -93,27 +97,21 @@ public class Player : MonoBehaviour
                         if (aluno != null)
                         {
                             aluno.menuInteracao.SetActive(isInteracting);
+                            interacaoAluno++;
+                            AnalyticsTest.instance.AddAnalytics("Player", "Interaçao com Aluno", interacaoAluno.ToString());
                             GameController.controller.acabou = false;
-                            //50% de chance de ter minigame
-                            /* float randomValue = Random.value;
-                             if (randomValue < 0.5f)
-                             {
-                                 GameController.controller.acabou = false;
-                                 GameController.controller.MiniGames();
-                             }*/
+                            
                         }
                     }
                     foundNPC = true;
-                    break; // Sai do loop assim que encontrar um NPC
+                    break; 
                 }
             }
         }
-        // Se nenhum NPC for encontrado e o jogador não está interagindo, esconde "E"
         if (!foundNPC && !isInteracting)
         {
             imageE.SetActive(false);
         }
-        // Se nenhum NPC foi encontrado e o jogador estava interagindo, desliga o menu de interação
         if (!foundNPC && isInteracting)
         {
             isInteracting = false;
@@ -135,6 +133,8 @@ public class Player : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     animator.SetTrigger("Estudar");
+                    interacaoEstudo++;
+                    AnalyticsTest.instance.AddAnalytics("Player", "Interaçao Estudo", interacaoEstudo.ToString());
                     MoveParaDestino(other.transform);
                     painelAulaMiniGame.SetActive(true);
                 }
@@ -152,5 +152,10 @@ public class Player : MonoBehaviour
     {
         transform.position = destino.position;
         transform.rotation = destino.rotation;
+    }
+    private void OnDestroy()
+    {
+        AnalyticsTest.instance.AddAnalytics("Player", "Die", "1");
+        AnalyticsTest.instance.Save();
     }
 }
