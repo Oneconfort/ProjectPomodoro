@@ -87,5 +87,6 @@ public class Personagens : MonoBehaviour
         texto.text = "Mini Game";
         GameController.controller.acabou = true;
         GameController.controller.miniGames[4].SetActive(false);
+        GameController.controller.miniGames[3].SetActive(false);
     }
 }

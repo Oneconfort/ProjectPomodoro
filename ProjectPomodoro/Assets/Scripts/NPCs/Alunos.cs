@@ -200,6 +200,7 @@ public abstract class Alunos : MonoBehaviour
         else if (Chegou(target))
         {
             state = State.COMER;
+            transform.eulerAngles = new Vector3(0, 0, 0);
             animator.SetBool("Comer", true);
             emojis[1].SetActive(true);
         }
@@ -219,6 +220,7 @@ public abstract class Alunos : MonoBehaviour
         if (Chegou(target))
         {
             state = State.BRINCAR;
+            transform.eulerAngles = new Vector3(0, 180, 0);
             animator.SetBool("Brincar", true);
             emojis[2].SetActive(true);
         }

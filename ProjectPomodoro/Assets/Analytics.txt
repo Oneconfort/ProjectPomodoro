@@ -4,28 +4,10 @@
             "time": 0.0,
             "sender": "Game",
             "track": "Start",
-            "value": "11/6/24 04:52"
+            "value": "12/6/24 12:56"
         },
         {
-            "time": 43.13999938964844,
-            "sender": "Player",
-            "track": "Interaçao com Aluno",
-            "value": "1"
-        },
-        {
-            "time": 50.2599983215332,
-            "sender": "Player",
-            "track": "Interaçao com Aluno",
-            "value": "2"
-        },
-        {
-            "time": 54.779998779296878,
-            "sender": "Player",
-            "track": "Interaçao com Aluno",
-            "value": "3"
-        },
-        {
-            "time": 0.0,
+            "time": 2.542677640914917,
             "sender": "Player",
             "track": "Die",
             "value": "1"

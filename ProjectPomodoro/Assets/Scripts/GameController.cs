@@ -341,6 +341,20 @@ public class GameController : MonoBehaviour
                     isMiniGame = false;
                 }
                 break;
+            case 6: //AlunoBully
+                if (isConflito == true)
+                {
+                    numMinigames++;
+                    miniGames[3].SetActive(true);
+                    isMiniGame = true;
+                    if (acabou == true)
+                    {
+                        miniGames[3].SetActive(false);
+                        acabou = false;
+                        isMiniGame = false;
+                    }
+                }
+                break;
         }
         player.painelAulaMiniGame.SetActive(false);
     }

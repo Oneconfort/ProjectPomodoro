@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 {
 
     Rigidbody rb;
-    float speed = 13;
+    [SerializeField] float speed = 13;
     [SerializeField] private float maxDistance = 10f;
     float viewAngle = 110f;
     private bool isInteracting = false;
@@ -33,16 +33,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (Time.timeScale == 0 || GameController.controller.isMiniGame == true) return;
-        {
-            Move();
-        }
+        Move();
+        
     }
 
    
     void Move()
     {
-        float v = Mathf.Clamp(Input.GetAxis("Vertical"), -0.45f, 0.45f);
-        float h = Mathf.Clamp(Input.GetAxis("Horizontal"), -0.45f, 0.45f);
+        float v = Mathf.Clamp(Input.GetAxis("Vertical"), -1f, 1f);
+        float h = Mathf.Clamp(Input.GetAxis("Horizontal"), -1f, 1f);
 
         if (Mathf.Abs(h) > 0 && Mathf.Abs(v) > 0)
         {
@@ -57,10 +56,11 @@ public class Player : MonoBehaviour
         }
 
         Vector3 moveInput = new Vector3(h, 0, v);
-        Vector3 moveVelocity = moveInput * speed;
+        Vector3 moveVelocity = moveInput * speed *Time.fixedDeltaTime;
 
-        rb.MovePosition(transform.position + moveVelocity * Time.fixedDeltaTime);
+        //rb.MovePosition(transform.position + moveVelocity * Time.fixedDeltaTime);
 
+        rb.velocity = new Vector3(moveVelocity.x, rb.velocity.y, moveVelocity.z);
         animator.SetFloat("Speed", moveVelocity.magnitude);
 
         if (moveInput != Vector3.zero)

@@ -575,14 +575,14 @@ RectTransform:
   m_GameObject: {fileID: 224456212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.54922, y: 0.54922, z: 0.54922}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1657217638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -292.46002, y: 292}
+  m_AnchoredPosition: {x: -224.20001, y: 681.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224456214
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b11fe0ae4e3a387498f2357fe74460ea, type: 3}
+  m_Sprite: {fileID: 623493015, guid: 861b92d3927c9c646b4f84bad379a5e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1190,7 +1190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -58.3, y: 39}
+  m_AnchoredPosition: {x: -58.3, y: 42.7}
   m_SizeDelta: {x: 268.656, y: 121.037}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &424615438
@@ -1213,12 +1213,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Fontes: \n\nKinderGarten por Geronimo Font Studios\n\nKefa por Jeremie
-    Hornus\nBoba cups por Khurasan\n\nDavi: Audio, Programa\xE7\xE3o dos bot\xF5es,
-    Maquina de estados dos Npcs\n\nCarolina: Desings da UI, Event Trigger, Anima\xE7\xF5es\n\nLays:
-    Programa\xE7\xE3o, Programa\xE7\xE3o dos bot\xF5es, Maquina de estados do player\n\nPedro:
-    Ancoragem, todos os bot\xF5es, exporta\xE7\xE3o dos modelos\n\nProjeto feito
-    em parceria com: Escola Municipal Limoeiro"
+  m_text: "Davi: Programa\xE7\xE3o, Game Design\n\nCarolina: UI Design, Modalagem
+    dos personagens, Implementa\xE7\xE3o do audio.\n\nLays Bassotto: Programa\xE7\xE3o,
+    Game Design.\n\nPedro Martins: Programa\xE7\xE3o, Game Design.\n\nSandra: Design
+    UI  \n\nModelagem dos assets: Luana, Lucas, Fernanda\n\nTutores Academicos: Daniel
+    Pinheiro, Josemar Caetano, Marcelo La Carretta, Roque Anderson, Simone Alves\n\nProjeto
+    feito em parceria com: Escola Municipal Limoeiro\n\nFonte:\nKinderGarten por
+    Geronimo Font Studios\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb823e953abbff44dba864f1732417e8, type: 2}
   m_sharedMaterial: {fileID: -6271365882234892024, guid: eb823e953abbff44dba864f1732417e8,
@@ -2240,6 +2241,81 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &639787939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 639787940}
+  - component: {fileID: 639787942}
+  - component: {fileID: 639787941}
+  m_Layer: 5
+  m_Name: ImageClips
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &639787940
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639787939}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7902504, y: 0.41865873, z: 0.76135}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1657217638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 219.9, y: 212.6}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &639787941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639787939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 276819535, guid: 861b92d3927c9c646b4f84bad379a5e6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &639787942
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639787939}
+  m_CullTransparentMesh: 1
 --- !u!1 &666565813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3827,6 +3903,81 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &1186659756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1186659757}
+  - component: {fileID: 1186659759}
+  - component: {fileID: 1186659758}
+  m_Layer: 5
+  m_Name: ImagePapel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1186659757
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186659756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9661485, y: 0.37343383, z: 0.70832}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1657217638}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 253.32013, y: 206.2}
+  m_SizeDelta: {x: 127.64, y: 129.343}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1186659758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186659756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.5424528, b: 0.5424528, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 8d5ba88a9ed70e14f93b97634c6c2712, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1186659759
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186659756}
+  m_CullTransparentMesh: 1
 --- !u!1 &1215503157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5078,6 +5229,8 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 396105551}
+  - {fileID: 1186659757}
+  - {fileID: 639787940}
   - {fileID: 224456213}
   - {fileID: 424615437}
   - {fileID: 587858534}
