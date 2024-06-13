@@ -1641,6 +1641,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlunoAnsio (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5578631787153524106, guid: 119995629d4481b4b9be65ac5c6f71be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2826,7 +2831,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 0f442be6ad77cc442af429e6b00c497a, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2f62720d599bd5942865a4a4b2c2e1df, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &235195196
 Transform:
@@ -6644,8 +6649,8 @@ Transform:
   m_GameObject: {fileID: 513704038}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -2.66, y: 0.15999997, z: 7.3742}
-  m_LocalScale: {x: 1, y: 3.73775, z: 13.222574}
+  m_LocalPosition: {x: -2.66, y: 0.15999997, z: 7.5291}
+  m_LocalScale: {x: 1, y: 3.73775, z: 13.531241}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 773067413}
@@ -7489,11 +7494,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6647838006433679859, guid: 278a3da0170ff634c9f33208ee08597e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8329,6 +8329,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bardeneiro (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2437981451883589453, guid: 8091206ad2411eb4d9933a79735095e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4298138460162786105, guid: 8091206ad2411eb4d9933a79735095e6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8931,8 +8936,6 @@ Transform:
   - {fileID: 543450651574180993}
   - {fileID: 543450652723648994}
   - {fileID: 543450653053769024}
-  - {fileID: 543450652077798550}
-  - {fileID: 543450652498236997}
   - {fileID: 543450652548492305}
   - {fileID: 543450652536291852}
   - {fileID: 715734145}
@@ -8951,6 +8954,8 @@ Transform:
   - {fileID: 543450652895024126}
   - {fileID: 543450651837701627}
   - {fileID: 1802320337}
+  - {fileID: 543450652077798550}
+  - {fileID: 543450652498236997}
   m_Father: {fileID: 1889307561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &634030004 stripped
@@ -12975,6 +12980,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlunoAnsio
       objectReference: {fileID: 0}
+    - target: {fileID: 5578631787153524106, guid: 119995629d4481b4b9be65ac5c6f71be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13067,6 +13077,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AlunoAnsio (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5578631787153524106, guid: 119995629d4481b4b9be65ac5c6f71be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23000,6 +23015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bully
       objectReference: {fileID: 0}
+    - target: {fileID: 7720375051954542949, guid: 475e7610158841c43a61e28107aee7e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8867583874110659599, guid: 475e7610158841c43a61e28107aee7e2,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -24247,6 +24267,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bardeneiro
+      objectReference: {fileID: 0}
+    - target: {fileID: 2437981451883589453, guid: 8091206ad2411eb4d9933a79735095e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4249181363000805558, guid: 8091206ad2411eb4d9933a79735095e6,
         type: 3}
