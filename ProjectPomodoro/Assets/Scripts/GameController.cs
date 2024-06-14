@@ -32,11 +32,11 @@ public class GameController : MonoBehaviour
     public Slider barraMiniGames;
     public Image imagemGame;
     //intervalo
-    float tempoTotal = 30f;
+    float tempoTotal = 60f;
     private float tempoAtual;
     int totalPontos;
     //fim de jogo
-    float TempoTotal = 120f, TempoAtual;
+    float TempoTotal = 240f, TempoAtual;
     public Text textoDoTempo, textoPontos, textoMinigames, textoLigaLiga;
     //minigameLigaLiga
     int randomIndex;
@@ -125,7 +125,7 @@ public class GameController : MonoBehaviour
     public void PararJogo()
     {
         textoMinigames.text = "Mini jogos:" + numMinigames;
-        AnalyticsTest.instance.AddAnalytics("Player", "Mini games jogados", numMinigames.ToString());
+      
         textoPontos.text = "Total de pontos:" + (pontosAmizade * numMinigames);
         if ((pontosAmizade * numMinigames) >= 500)
         {
@@ -267,6 +267,7 @@ public class GameController : MonoBehaviour
         {
             case 0: //matematica
                 numMinigames++;
+                AnalyticsTest.instance.AddAnalytics("Player", "Mini games jogados", numMinigames.ToString());
                 miniGames[2].SetActive(true);
                 isMiniGame = true;
                 if (acabou == true)
@@ -278,6 +279,7 @@ public class GameController : MonoBehaviour
                 break;
             case 1: //liga liga
                 numMinigames++;
+                AnalyticsTest.instance.AddAnalytics("Player", "Mini games jogados", numMinigames.ToString());
                 miniGames[1].SetActive(true);
                 isMiniGame = true;
 
@@ -293,6 +295,7 @@ public class GameController : MonoBehaviour
                 break;
             case 2: //ordem
                 numMinigames++;
+                AnalyticsTest.instance.AddAnalytics("Player", "Mini games jogados", numMinigames.ToString());
                 miniGames[0].SetActive(true);
                 isMiniGame = true;
                 if (acabou == true)
@@ -306,6 +309,7 @@ public class GameController : MonoBehaviour
                 if (isConflito == true)
                 {
                     numMinigames++;
+                    AnalyticsTest.instance.AddAnalytics("Player", "Mini games jogados", numMinigames.ToString());
                     miniGames[4].SetActive(true);
                     isMiniGame = true;
                     if (acabou == true)
@@ -320,6 +324,7 @@ public class GameController : MonoBehaviour
                 if (isConflito == true)
                 {
                     numMinigames++;
+                    AnalyticsTest.instance.AddAnalytics("Player", "Mini games jogados", numMinigames.ToString());
                     miniGames[5].SetActive(true);
                     isMiniGame = true;
                     if (acabou == true)
@@ -345,6 +350,7 @@ public class GameController : MonoBehaviour
                 if (isConflito == true)
                 {
                     numMinigames++;
+                    AnalyticsTest.instance.AddAnalytics("Player", "Mini games jogados", numMinigames.ToString());
                     miniGames[3].SetActive(true);
                     isMiniGame = true;
                     if (acabou == true)
@@ -356,6 +362,7 @@ public class GameController : MonoBehaviour
                 }
                 break;
         }
+
         player.painelAulaMiniGame.SetActive(false);
     }
     public void VerificarFechar()

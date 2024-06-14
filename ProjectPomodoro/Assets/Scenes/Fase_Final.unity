@@ -10617,6 +10617,7 @@ MonoBehaviour:
   painelOpcoes: {fileID: 0}
   painelDerrota: {fileID: 1731015757}
   canvas: {fileID: 988786804}
+  p: {fileID: 0}
   Master: {fileID: 0}
   Music: {fileID: 0}
   VFX: {fileID: 0}
@@ -30207,7 +30208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4f261d86b588a459a5e9a5b5370980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1000
+  speed: 700
   maxDistance: 7
   imageE: {fileID: 3416921649437890539}
   painelAulaMiniGame: {fileID: 1697175755}

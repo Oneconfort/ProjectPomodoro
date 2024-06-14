@@ -9,7 +9,7 @@ using System.Transactions;
 using System;
 using System.Linq;
 
-public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR, VITIMA, BRAVO, BULLYING, QUEBRA, CHORAR};
+public enum State { Walking, ESTUDAR, DISCUTIR, COMER, IDLE, BRINCAR, VITIMA, BRAVO, BULLYING, QUEBRA, CHORAR };
 public abstract class Alunos : MonoBehaviour
 {
     NavMeshAgent agentAluno;
@@ -18,7 +18,7 @@ public abstract class Alunos : MonoBehaviour
 
     private bool desenfilerou = false;
     private bool normalizou = false;
-    [SerializeField]protected bool isHappy = false;
+    [SerializeField] protected bool isHappy = false;
     public bool isCalled;
     public bool inConflict;
 
@@ -26,7 +26,7 @@ public abstract class Alunos : MonoBehaviour
     public State state;
     public GameObject[] emojis;
     public GameObject menuInteracao;
-    public  int amizade = 10;
+    public int amizade = 10;
     public Slider barraAmizade;
 
     public Action actAtual;
@@ -56,7 +56,7 @@ public abstract class Alunos : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameController.controller.isMiniGame == true ) { return; }
+        if (GameController.controller.isMiniGame == true) { return; }
         if (!GameController.controller.isIntervalo)
         {
             if (!desenfilerou)
@@ -72,7 +72,7 @@ public abstract class Alunos : MonoBehaviour
             }
             Estudar();
         }
-        else 
+        else
         {
             if (desenfilerou)
             {
@@ -83,7 +83,7 @@ public abstract class Alunos : MonoBehaviour
             actAtual();
         }
         MudarEmoji();
-      //  DecrescerAmizade();
+        //  DecrescerAmizade();
     }
 
     //Metodo para criar as filas de afazeres de cada aluno, provavelmente vou mudar para os script de cada aluno
@@ -145,20 +145,24 @@ public abstract class Alunos : MonoBehaviour
     }
     public void AumentarAmizade(int quantidade)
     {
-        amizade += quantidade;
-        barraAmizade.value = amizade;
-        isHappy = true;
-        if (amizade >= 10)
+        if (GameController.controller.isConflito == false)
         {
-            amizade = 10;
-        }
-        if (amizade <= 0)
-        {
-            amizade = 0;
-        }
-        if (amizade > 0)
-        {
-            GameController.controller.AtualizarPontos(quantidade);
+
+            amizade += quantidade;
+            barraAmizade.value = amizade;
+            isHappy = true;
+            if (amizade >= 10)
+            {
+                amizade = 10;
+            }
+            if (amizade <= 0)
+            {
+                amizade = 0;
+            }
+            if (amizade > 0)
+            {
+                GameController.controller.AtualizarPontos(quantidade);
+            }
         }
     }
 
@@ -239,7 +243,8 @@ public abstract class Alunos : MonoBehaviour
             Move(target);
             DeslisgarEmojis();
 
-        }else if (Chegou(target) && !isHappy)
+        }
+        else if (Chegou(target) && !isHappy)
         {
             if (state == State.Walking)
             {
@@ -278,7 +283,7 @@ public abstract class Alunos : MonoBehaviour
         }
     }
 
-    
+
     protected void Nomarlizar()
     {
         if (!normalizou)

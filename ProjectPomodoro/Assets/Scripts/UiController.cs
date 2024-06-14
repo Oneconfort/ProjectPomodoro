@@ -8,7 +8,7 @@ using Unity.VisualScripting.FullSerializer;
 
 public class UiController : MonoBehaviour
 {
-    public GameObject uiPause, painelInicio, intervaloImagem, painelCreditos, painelOpcoes, painelDerrota, canvas;
+    public GameObject uiPause, painelInicio, intervaloImagem, painelCreditos, painelOpcoes, painelDerrota, canvas, p;
     bool visivel, visivelUiPause;
     public Slider Master, Music, VFX;
     
@@ -36,6 +36,13 @@ public class UiController : MonoBehaviour
          Time.timeScale = 1f;
         //painelInicio.SetActive(false);
         SceneManager.LoadScene("Fase_Final");
+    } 
+    public void FecharPainelFinal()
+    {
+        // visivel = !visivel;
+         Time.timeScale = 1f;
+        //painelInicio.SetActive(false);
+        SceneManager.LoadScene("Menu");
     }
    
 
@@ -58,9 +65,9 @@ public class UiController : MonoBehaviour
 
     public void MostrarPainelFimDeJogo()
     {
-        visivel = !visivel;
+       // visivel = !visivel;
         painelDerrota.SetActive(true);
-       // Time.timeScale = 0.0f;
+       // Time.timeScale = 1.0f;
     }
 
     public void PainelMenu()
