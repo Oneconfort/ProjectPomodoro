@@ -19,8 +19,8 @@ public class Conflituosos : Alunos
         {
             if (!chamei)
             {
-                GameController.controller.GetAluno(target, true);
                 chamei = true;
+                GameController.controller.GetAluno(target, true);
             }
             else
             if (!isHappy)

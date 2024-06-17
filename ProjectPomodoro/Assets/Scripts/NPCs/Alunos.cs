@@ -102,9 +102,9 @@ public abstract class Alunos : MonoBehaviour
     }
     public void Move(Transform target)
     {
-        state = State.Walking;
         animator.SetTrigger("Acabou");
         animator.SetTrigger("Andar");
+        state = State.Walking;
         agentAluno.SetDestination(target.transform.position);
     }
     void MudarEmoji()
@@ -265,17 +265,20 @@ public abstract class Alunos : MonoBehaviour
     }
     public void SejaVitima()
     {
-        if (!Chegou(target))
+        if (!isHappy)
         {
-            Move(target);
-            DeslisgarEmojis();
-        }
-        else if (!isHappy)
-        {
-            state = State.CHORAR;
-            animator.SetBool("Chorar", true);
-            emojis[6].SetActive(true);
-            DecrescerAmizade();
+            if (state != State.Walking || state != State.CHORAR)
+            {
+                Move(target);
+                DeslisgarEmojis();
+            }
+            else
+            {
+                state = State.CHORAR;
+                animator.SetBool("Chorar", true);
+                emojis[6].SetActive(true);
+                DecrescerAmizade();
+            }
         }
         else
         {
@@ -290,14 +293,10 @@ public abstract class Alunos : MonoBehaviour
         {
             target = GameController.controller.GetMesa();
             normalizou = true;
-        }
-        else if (!Chegou(target))
-        {
-            animator.SetTrigger("Andar");
             DeslisgarEmojis();
             Move(target);
         }
-        else
+        else if (!Chegou(target))
         {
             state = State.COMER;
             animator.SetBool("Comer", false);

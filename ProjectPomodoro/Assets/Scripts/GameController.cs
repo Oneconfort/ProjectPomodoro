@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     public static GameController controller;
     public UiController uiController;
     public Player player;
-
+    private bool reiniciou;
     public bool isIntervalo, isMiniGame = false, isConflito = false; //Será usado para determinar a movimentação dos alunos // isMiniGame para o tempo de tem mini game
     public int pontosAmizade, numMinigames;
     public Slider barraMiniGames;
@@ -53,6 +53,7 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
+        reiniciou = false;
         tempoAtual = tempoTotal;
         TempoAtual = TempoTotal;
         pontosAmizade = 10 * alunos.Length;
@@ -92,11 +93,20 @@ public class GameController : MonoBehaviour
         }
         if (isIntervalo)
         {
+            if (!reiniciou)
+            {
+                ReiniciarTargets();
+                reiniciou = true;
+            }
             uiController.intervaloImagem.SetActive(true);
-            ReiniciarTargets();
         }
         else
         {
+            if (reiniciou)
+            {
+                ReiniciarTargets();
+                reiniciou = false;
+            }
             uiController.intervaloImagem.SetActive(false);
             ReiniciarTargets();
         }
