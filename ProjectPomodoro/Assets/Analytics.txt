@@ -1,13 +1,25 @@
 {
     "data": [
         {
-            "time": 2.135495901107788,
+            "time": 0.0,
             "sender": "Game",
             "track": "Start",
-            "value": "14/6/24 07:31"
+            "value": "17/6/24 11:07"
         },
         {
-            "time": 3.9658968448638918,
+            "time": 90.43999481201172,
+            "sender": "Player",
+            "track": "Interaçao com Aluno",
+            "value": "1"
+        },
+        {
+            "time": 91.93659973144531,
+            "sender": "Player",
+            "track": "Mini games jogados",
+            "value": "1"
+        },
+        {
+            "time": 0.0,
             "sender": "Player",
             "track": "Die",
             "value": "1"

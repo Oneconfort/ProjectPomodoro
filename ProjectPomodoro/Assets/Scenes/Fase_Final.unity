@@ -5118,7 +5118,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e05c54ead23d1b843a021add0f0df447, type: 3}
+    m_Font: {fileID: 12800000, guid: e4e9da3b42ec7a942abb349018518937, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 1
@@ -5130,7 +5130,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ola, me chamo Cicero.
+  m_Text: "Ol\xE1, me chamo C\xEDcero."
 --- !u!222 &362921311
 CanvasRenderer:
   m_ObjectHideFlags: 0

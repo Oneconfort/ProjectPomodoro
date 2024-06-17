@@ -1207,7 +1207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -58.3, y: 42.7}
+  m_AnchoredPosition: {x: -58.3, y: 50.8}
   m_SizeDelta: {x: 268.656, y: 121.037}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &424615438
@@ -1238,8 +1238,8 @@ MonoBehaviour:
     feito em parceria com: Escola Municipal Limoeiro\n\nFonte:\nKinderGarten por
     Geronimo Font Studios\n\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eb823e953abbff44dba864f1732417e8, type: 2}
-  m_sharedMaterial: {fileID: -6271365882234892024, guid: eb823e953abbff44dba864f1732417e8,
+  m_fontAsset: {fileID: 11400000, guid: c5d392106d98fb249a232cdb52a8be8a, type: 2}
+  m_sharedMaterial: {fileID: 4103134343853418211, guid: c5d392106d98fb249a232cdb52a8be8a,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -16.9
+  m_lineSpacing: -45
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

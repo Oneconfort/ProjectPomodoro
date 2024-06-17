@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3347662919202ec47a0b700ce2bf83fc, type: 3}
   m_Name: Tutorial3
   m_EditorClassIdentifier: 
-  texto: Pra isso voce precisa completar Mini-Jogos, assim granhando pontos.
+  texto: "Pra isso voc\xEA precisa completar Mini-Jogos, assim granhando pontos."
   sprite: {fileID: -1500044569, guid: ba39c5b640aebc143bbe3d961de38d43, type: 3}
   proxDialogo: {fileID: 11400000, guid: c9bae1fd9705a1e47b75617d8ab3be8b, type: 2}

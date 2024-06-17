@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3347662919202ec47a0b700ce2bf83fc, type: 3}
   m_Name: Tutorial4
   m_EditorClassIdentifier: 
-  texto: "Para alguns Mini-Jogos voce precisa ligar corretamente objetos, resolver
-    contas matematicas ou contar at\xE9 certo numero. Ha tambem Mini-Jogos especificos
-    para alguns alunos que dependem do seu humor."
+  texto: "Para alguns Mini-Jogos voc\xEA precisa ligar corretamente objetos, resolver
+    contas matem\xE1ticas ou contar at\xE9 certo numero. H\xE1 tambem Mini-Jogos
+    espec\xEDficos para alguns alunos que dependem do seu humor."
   sprite: {fileID: -1500044569, guid: ba39c5b640aebc143bbe3d961de38d43, type: 3}
   proxDialogo: {fileID: 11400000, guid: 76689ad36307e3e4b94dc4ba815f3a05, type: 2}
