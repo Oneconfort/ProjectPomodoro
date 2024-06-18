@@ -4,67 +4,7 @@
             "time": 0.0,
             "sender": "Game",
             "track": "Start",
-            "value": "17/6/24 07:07"
-        },
-        {
-            "time": 53.02000045776367,
-            "sender": "Player",
-            "track": "Interaçao Estudo",
-            "value": "1"
-        },
-        {
-            "time": 55.84678268432617,
-            "sender": "Player",
-            "track": "Mini games jogados",
-            "value": "1"
-        },
-        {
-            "time": 92.68000030517578,
-            "sender": "Player",
-            "track": "Interaçao com Aluno",
-            "value": "1"
-        },
-        {
-            "time": 94.66632843017578,
-            "sender": "Player",
-            "track": "Mini games jogados",
-            "value": "2"
-        },
-        {
-            "time": 128.72000122070313,
-            "sender": "Player",
-            "track": "Interaçao com Aluno",
-            "value": "2"
-        },
-        {
-            "time": 130.16049194335938,
-            "sender": "Player",
-            "track": "Mini games jogados",
-            "value": "3"
-        },
-        {
-            "time": 160.94000244140626,
-            "sender": "Player",
-            "track": "Interaçao com Aluno",
-            "value": "3"
-        },
-        {
-            "time": 162.27011108398438,
-            "sender": "Player",
-            "track": "Mini games jogados",
-            "value": "4"
-        },
-        {
-            "time": 179.8199920654297,
-            "sender": "Player",
-            "track": "Interaçao com Aluno",
-            "value": "4"
-        },
-        {
-            "time": 182.0572967529297,
-            "sender": "Player",
-            "track": "Mini games jogados",
-            "value": "5"
+            "value": "18/6/24 01:22"
         },
         {
             "time": 0.0,
