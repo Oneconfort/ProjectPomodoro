@@ -8,7 +8,7 @@ using Unity.VisualScripting.FullSerializer;
 
 public class UiController : MonoBehaviour
 {
-    public GameObject uiPause, painelInicio, intervaloImagem, painelCreditos, painelOpcoes, painelDerrota, canvas, p;
+    public GameObject uiPause, painelInicio, intervaloImagem, painelCreditos, painelOpcoes, painelDerrota, canvas, painelTutorial;
     bool visivel, visivelUiPause;
     public Slider Master, Music, VFX;
     
@@ -103,6 +103,10 @@ public class UiController : MonoBehaviour
         {
             Time.timeScale = 1.0f;
         }
+    }
+    public void PainelTutorial()
+    {
+        painelTutorial.SetActive(false);
     }
     public void Reset(int resetar)
     {

@@ -9,7 +9,7 @@ public class GamePedraPapelTesoura : MonoBehaviour
     public Button buttonPedra;
     public Button buttonPapel;
     public Button buttonTesoura;
-    public GameObject[] Resposta, escolha, imagens;
+    public GameObject[] Resposta, escolha, imagens, imagensAnim;
     public Text resultText;
 
     private enum Choice { Pedra, Papel, Tesoura }
@@ -49,7 +49,10 @@ public class GamePedraPapelTesoura : MonoBehaviour
         for (int i = 0; i < imagens.Length; i++)
         {
             imagens[i].SetActive(false);
+           
         }
+        imagensAnim[0].SetActive(false);
+        imagensAnim[1].SetActive(false);
     }
     void DetermineWinner()
     {
@@ -61,11 +64,11 @@ public class GamePedraPapelTesoura : MonoBehaviour
                  (playerChoice == Choice.Papel && aiChoice == Choice.Pedra) ||
                  (playerChoice == Choice.Tesoura && aiChoice == Choice.Papel))
         {
-            resultText.text = "Você venceu! Você escolheu " + playerChoice.ToString() + " e a IA escolheu " + aiChoice.ToString();
+            resultText.text = "Você venceu! Você escolheu " + playerChoice.ToString() + " e seu amigo escolheu " + aiChoice.ToString();
         }
         else
         {
-            resultText.text = "Você perdeu! Você escolheu " + playerChoice.ToString() + " e a IA escolheu " + aiChoice.ToString();
+            resultText.text = "Você perdeu! Você escolheu " + playerChoice.ToString() + " e seu amigo escolheu " + aiChoice.ToString();
         }
         Invoke("FimGame", 5f);
     }
@@ -77,7 +80,8 @@ public class GamePedraPapelTesoura : MonoBehaviour
             imagens[i].SetActive(true);
             escolha[i].SetActive(false);
         }
-
+        imagensAnim[0].SetActive(true);
+        imagensAnim[1].SetActive(true);
         resultText.text = "Pedra, Papel e Tesoura ";
         GameController.controller.miniGames[6].SetActive(false);
         GameController.controller.acabou = true;

@@ -128,8 +128,8 @@ TextureImporter:
         serializedVersion: 2
         x: 47
         y: 547
-        width: 266
-        height: 210
+        width: 295
+        height: 204
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,8 +149,8 @@ TextureImporter:
         serializedVersion: 2
         x: 350
         y: 541
-        width: 266
-        height: 210
+        width: 295
+        height: 204
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: "C\xEDcero3"
       rect:
         serializedVersion: 2
-        x: 58
+        x: 38
         y: 309
-        width: 235
-        height: 210
+        width: 290
+        height: 204
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,8 +212,8 @@ TextureImporter:
         serializedVersion: 2
         x: 60
         y: 76
-        width: 235
-        height: 210
+        width: 295
+        height: 204
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
