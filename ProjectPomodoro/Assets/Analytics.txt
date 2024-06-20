@@ -4,13 +4,7 @@
             "time": 0.0,
             "sender": "Game",
             "track": "Start",
-            "value": "19/6/24 02:24"
-        },
-        {
-            "time": 13.179999351501465,
-            "sender": "Player",
-            "track": "Interaçao Estudo",
-            "value": "1"
+            "value": "20/6/24 09:19"
         },
         {
             "time": 0.0,
